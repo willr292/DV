@@ -90,7 +90,7 @@ module example_calc1_tb;
 	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 
 	// TEST 4: Overflow error
-	$display("Test for overflow error, adding 1 to max");
+	$display("Test for overflow error, adding 1 to max\n");
 	#400
 
 		req1_cmd_in = 1;
@@ -109,7 +109,7 @@ module example_calc1_tb;
 
 	#200
 
-	$display("Output response is: %d", out_resp1);
+	$display("Output response is: %d\n", out_resp1);
 
 
 	// TEST 5:
@@ -137,7 +137,7 @@ module example_calc1_tb;
 
 
 	// TEST 6: Invalid command 3
-	$display("Testing for invalid command 3",);
+	$display("Testing for invalid command 3\n",);
 
 	#400
 
@@ -152,10 +152,10 @@ module example_calc1_tb;
 
 	#200
 
-	$display("Output response is: %d", out_resp1);
+	$display("Output response is: %d\n", out_resp1);
 
 	// TEST 7: Invalid command 4
-	$display("Testing for invalid command 4",);
+	$display("Testing for invalid command 4\n",);
 
 	#400
 
@@ -170,7 +170,7 @@ module example_calc1_tb;
 
 	#200
 
-	$display("Output response is: %d", out_resp1);
+	$display("Output response is: %d\n", out_resp1);
 
 	// TEST 8: underflow error
 
@@ -190,9 +190,29 @@ module example_calc1_tb;
 	req1_cmd_in = 0;
 	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_1111;
 
-	#400
+	#800
 
-	$display("Output response is: %d, and answer is %d", out_resp1, out_data1);
+	$display("Output response is: %d, and answer is %d\n", out_resp1, out_data1);
+
+	// TEST 9 
+	#400
+	for(x=32'b0000_0000_0000_0000_0000_0000_0000_0000, x<32'b0000_0000_0000_0000_0000_0000_0000_1111, x++) {
+		for(y=32'b0000_0000_0000_0000_0000_0000_0000_0000, y<32'b0000_0000_0000_0000_0000_0000_0000_1111, y++) {
+			#400
+			req1_cmd_in = 1;
+			req1_data_in = x;
+			#400
+			req1_cmd_in = 0;
+			req1_data_in = y;
+
+			#400
+			if(out_data1 != (x+y)) {
+				$display("ANSWER WAS NOT CORRECT");
+				}
+
+
+			}
+		}
 
 	#2000 $stop;
 
