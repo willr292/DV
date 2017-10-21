@@ -12,6 +12,9 @@ module example_calc1_tb;
 
    calc1 DUV(out_data1, out_data2, out_data3, out_data4, out_resp1, out_resp2, out_resp3, out_resp4, c_clk, req1_cmd_in, req1_data_in, req2_cmd_in, req2_data_in, req3_cmd_in, req3_data_in, req4_cmd_in, req4_data_in, reset);
    
+	integer x=32'b0000_0000_0000_0000_0000_0000_0000_0000;
+	integer y=32'b0000_0000_0000_0000_0000_0000_0000_0000;
+
    initial 
      begin
 	c_clk = 0;
@@ -194,8 +197,7 @@ module example_calc1_tb;
 
 	$display("Output response is: %d, and answer is %d\n", out_resp1, out_data1);
 
-	integer x=32'b0000_0000_0000_0000_0000_0000_0000_0000;
-	integer y=32'b0000_0000_0000_0000_0000_0000_0000_0000;
+	
 	// TEST 9 
 	#400
 	for(x, x<32'b0000_0000_0000_0000_0000_0000_0000_1111, x++) {
