@@ -113,7 +113,7 @@ module example_calc1_tb;
 
 
 	// TEST 5:
-
+	/*
 	#400
 
 	for(x=0, x<20, x++) {
@@ -133,7 +133,7 @@ module example_calc1_tb;
 		req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 
 	}
-
+	*/
 
 	#2000 $stop;
 
