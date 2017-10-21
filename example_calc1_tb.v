@@ -192,7 +192,7 @@ module example_calc1_tb;
 
 	#400
 
-	$display("Output response is: %d", out_resp1);
+	$display("Output response is: %d, and answer is %d", out_resp1, out_data1);
 
 	#2000 $stop;
 
