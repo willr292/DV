@@ -136,7 +136,7 @@ module example_calc1_tb;
 	*/
 
 
-// TEST 6: Invalid command 3
+	// TEST 6: Invalid command 3
 	$display("Testing for invalid command 3",);
 
 	#400
@@ -154,7 +154,7 @@ module example_calc1_tb;
 
 	$display("Output response is: %d", out_resp1);
 
-	// TEST 6: Invalid command 4
+	// TEST 7: Invalid command 4
 	$display("Testing for invalid command 4",);
 
 	#400
@@ -169,6 +169,8 @@ module example_calc1_tb;
 	req4_data_in = 0;
 
 	#200
+	req1_cmd_in = 0;
+	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 
 	$display("Output response is: %d", out_resp1);
 
