@@ -152,11 +152,6 @@ module example_calc1_tb;
 
 	#200
 
-	req1_cmd_in = 0;
-	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
-
-	#200
-
 	$display("Output response is: %d", out_resp1);
 
 	#2000 $stop;
