@@ -89,8 +89,8 @@ module example_calc1_tb;
 	req1_cmd_in = 0;
 	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 
-	// TEST 4:
-
+	// TEST 4: Overflow error
+	$display("Test for overflow error, adding 1 to max");
 	#400
 
 		req1_cmd_in = 1;
@@ -109,7 +109,7 @@ module example_calc1_tb;
 
 	#200
 
-	$display("%d", out_resp1);
+	$display("Output response is: %d", out_resp1);
 
 
 	// TEST 5:
@@ -134,6 +134,30 @@ module example_calc1_tb;
 
 	}
 	*/
+
+
+// TEST 6: Invalid command 3
+	$display("Testing for invalid command 3",);
+
+	#400
+
+		req1_cmd_in = 3;
+	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
+	req2_cmd_in = 0;
+	req2_data_in = 0;
+	req3_cmd_in = 0;
+	req3_data_in = 0;
+	req4_cmd_in = 0;
+	req4_data_in = 0;
+
+	#200
+
+	req1_cmd_in = 0;
+	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
+
+	#200
+
+	$display("Output response is: %d", out_resp1);
 
 	#2000 $stop;
 
