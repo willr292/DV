@@ -194,6 +194,8 @@ module example_calc1_tb;
 
 	$display("Output response is: %d, and answer is %d\n", out_resp1, out_data1);
 
+	integer x;
+	integer y;
 	// TEST 9 
 	#400
 	for(x=32'b0000_0000_0000_0000_0000_0000_0000_0000, x<32'b0000_0000_0000_0000_0000_0000_0000_1111, x++) {
