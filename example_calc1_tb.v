@@ -154,6 +154,24 @@ module example_calc1_tb;
 
 	$display("Output response is: %d", out_resp1);
 
+	// TEST 6: Invalid command 4
+	$display("Testing for invalid command 4",);
+
+	#400
+
+		req1_cmd_in = 4;
+	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
+	req2_cmd_in = 0;
+	req2_data_in = 0;
+	req3_cmd_in = 0;
+	req3_data_in = 0;
+	req4_cmd_in = 0;
+	req4_data_in = 0;
+
+	#200
+
+	$display("Output response is: %d", out_resp1);
+
 	#2000 $stop;
 
      end // initial begin
