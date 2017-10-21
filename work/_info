@@ -1,0 +1,20 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/fe15/wr15339/linux/DV_A1
+vexample_calc1_tb
+!s100 1[nMeE6lBd_LP5cj8kPYg0
+IoHd7Vj59EEH@X<]mV?j8>1
+V0;Fk=HPj@XA3n]oNKWB9P1
+w1508429113
+8/home/fe15/wr15339/linux/DV_A1/example_calc1_tb.v
+F/home/fe15/wr15339/linux/DV_A1/example_calc1_tb.v
+L0 3
+OL;L;6.5c;42
+r1
+!s85 0
+31
+!s102 -nocovercells
+o-work work -nocovercells -L mtiAvm -L mtiOvm -L mtiUPF
+tCoverOpt 1 CoverFEC 0 CoverShortCircuit 0

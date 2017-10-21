@@ -1,0 +1,17 @@
+# //  ModelSim SE-64 6.5c Aug 27 2009 Linux 3.10.0-514.16.1.el7.x86_64
+# //
+# //  Copyright 1991-2009 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# reading /usr/local/modelsim/modeltech/linux_x86_64/../modelsim.ini
+# Loading project DesignVerification1
+# reading /usr/local/modelsim/modeltech/linux_x86_64/../modelsim.ini
+# reading modelsim.ini
+# Loading project calculator
+# Compile of example_calc1_tb.v was successful.
+# Load canceled
