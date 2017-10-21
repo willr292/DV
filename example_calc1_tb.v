@@ -169,10 +169,26 @@ module example_calc1_tb;
 	req4_data_in = 0;
 
 	#200
-	req1_cmd_in = 0;
-	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 
 	$display("Output response is: %d", out_resp1);
+
+	// TEST 8: underflow error
+
+        #400
+	  
+        req1_cmd_in = 2;
+	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
+	req2_cmd_in = 0;
+	req2_data_in = 0;
+	req3_cmd_in = 0;
+	req3_data_in = 0;
+	req4_cmd_in = 0;
+	req4_data_in = 0;
+
+	#200
+	
+	req1_cmd_in = 0;
+	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_1111;
 
 	#2000 $stop;
 
