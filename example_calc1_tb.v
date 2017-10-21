@@ -200,8 +200,8 @@ module example_calc1_tb;
 	
 	// TEST 9 
 	#400
-	for(x; x<32'b0000_0000_0000_0000_0000_0000_0000_1111; x+1) {
-		for(y; y<32'b0000_0000_0000_0000_0000_0000_0000_1111; y+1) {
+	for(x; x<32'b0000_0000_0000_0000_0000_0000_0000_1111; x+1) begin
+		for(y; y<32'b0000_0000_0000_0000_0000_0000_0000_1111; y+1) begin
 			#400
 			req1_cmd_in = 1;
 			req1_data_in = x;
@@ -210,13 +210,13 @@ module example_calc1_tb;
 			req1_data_in = y;
 
 			#400
-			if(out_data1 != (x+y)) {
+			if(out_data1 != (x+y)) begin
 				$display("ANSWER WAS NOT CORRECT");
-				}
+				end
 
 
-			}
-		}
+			end
+		end
 
 	#2000 $stop;
 
