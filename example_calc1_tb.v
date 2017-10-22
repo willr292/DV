@@ -14,6 +14,7 @@ module example_calc1_tb;
    
 	integer x;
 	integer y;
+	char buffer[65];
 
    initial 
      begin
@@ -210,7 +211,7 @@ module example_calc1_tb;
 			req1_data_in = y;
 
 			#400
-			if(out_data1 != (x+y)) begin
+			if(out_data1 != itoa((x+y, buffer, 2)) begin
 				$display("ANSWER WAS NOT CORRECT");
 				end
 
