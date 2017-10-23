@@ -199,11 +199,17 @@ module example_calc1_tb;
 
 	// TEST 9 
 	#400
-	for(x=0; x<(100); x=x+1) begin
+	for(x=0; x<(5); x=x+1) begin
 		
 			#400
 			req1_cmd_in = 1;
 			req1_data_in = x;
+			req2_cmd_in = 0;
+			req2_data_in = 0;
+			req3_cmd_in = 0;
+			req3_data_in = 0;
+			req4_cmd_in = 0;
+			req4_data_in = 0;
 			#600
 			req1_cmd_in = 0;
 			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
