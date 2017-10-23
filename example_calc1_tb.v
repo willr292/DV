@@ -15,7 +15,7 @@ module example_calc1_tb;
 	integer x;
 	integer y;
 
-	int rd_data1_out;
+	integer rd_data1_out;
 
    initial 
      begin
@@ -204,7 +204,7 @@ module example_calc1_tb;
 	for(x=1; x<(20000); x=(x<<1)) begin
 			
 			$display("%b\n",x);
-			#1000
+			#200
 			req1_cmd_in = 1;
 			req1_data_in = x;
 			req2_cmd_in = 0;
@@ -213,11 +213,11 @@ module example_calc1_tb;
 			req3_data_in = 0;
 			req4_cmd_in = 0;
 			req4_data_in = 0;
-			#1000
+			#200
 			req1_cmd_in = 0;
 			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 
-			#1000
+			#200
 			rd_data1_out = out_data1;
 			if(rd_data1_out != x) begin
 				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, x);
