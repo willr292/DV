@@ -112,7 +112,7 @@ module example_calc1_tb;
 
 	#200
 
-	$display("Output response is: %d\n and data out is %d\n", out_resp1, out_data1);
+	$display("Output response is: %b\n and data out is %b\n", out_resp1, out_data1);
 
 
 	// TEST 5:
