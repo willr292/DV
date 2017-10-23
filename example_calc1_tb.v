@@ -15,6 +15,10 @@ module example_calc1_tb;
 	integer x;
 	integer y;
 
+	unsigned int int_to_int(unsigned int k) {
+	    return (k == 0 || k == 1 ? k : ((k % 2) + 10 * int_to_int(k / 2)));
+	}
+
    initial 
      begin
 	c_clk = 0;
@@ -199,17 +203,17 @@ module example_calc1_tb;
 
 	// TEST 9 
 	#400
-	for(x=0; x<(2^32); x=x+1) begin
+	for(x=0; x<(2**32); x=x+1) begin
 		
 			#400
 			req1_cmd_in = 1;
 			req1_data_in = x;
-			#400
+			#600
 			req1_cmd_in = 0;
 			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 
 			#400
-			if(out_data1 != x) begin
+			if(out_data1 != int_to_int(x)) begin
 				$display("ANSWER WAS NOT CORRECT, out data was %b when answer should be %b", out_data1, x);
 				end
 		end
