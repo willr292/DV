@@ -197,7 +197,7 @@ module example_calc1_tb;
 
 	$display("Output response is: %d, and answer is %d\n", out_resp1, out_data1);
 
-	
+	/*
 	// TEST 9 
 	#400
 	for(x=; x<; x=x+1) begin
@@ -217,7 +217,7 @@ module example_calc1_tb;
 
 			end
 		end
-
+	*/
 	//TEST 10
 	#400
 		req1_cmd_in = 1;
