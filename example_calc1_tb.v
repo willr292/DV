@@ -14,7 +14,6 @@ module example_calc1_tb;
    
 	integer x;
 	integer y;
-	character buffer[65];
 
    initial 
      begin
@@ -201,8 +200,8 @@ module example_calc1_tb;
 	
 	// TEST 9 
 	#400
-	for(x=32'b0000_0000_0000_0000_0000_0000_0000_0000; x<32'b0000_0000_0000_0000_0000_0000_0000_1111; x=x+1) begin
-		for(y=32'b0000_0000_0000_0000_0000_0000_0000_0000; y<32'b0000_0000_0000_0000_0000_0000_0000_1111; y=y+1) begin
+	for(x=; x<; x=x+1) begin
+		for(y=; y<; y=y+1) begin
 			#400
 			req1_cmd_in = 1;
 			req1_data_in = x;
@@ -211,7 +210,7 @@ module example_calc1_tb;
 			req1_data_in = y;
 
 			#400
-			if(out_data1 != itoa(x+y, buffer, 2) begin
+			if(out_data1 != ) begin
 				$display("ANSWER WAS NOT CORRECT");
 				end
 
@@ -219,7 +218,23 @@ module example_calc1_tb;
 			end
 		end
 
+	//TEST 10
+	#400
+		req1_cmd_in = 1;
+	req1_data_in = 32'b0000_0000_0000_1111_0000_1111_0000_1111;
+	#100
+	req1_cmd_in = 0;
+	req1_data_in = 32'b0000_0000_0000_0000_0000_1111_0000_1111;
+	#1000
+	#10 $display("what happens if wait too long for next data %d %d\n", out_resp1, out_data1);
+	#200
+	#10 $display("done testing TEST M1");
+	#200
+
+
 	#2000 $stop;
+
+
 
      end // initial begin
 
