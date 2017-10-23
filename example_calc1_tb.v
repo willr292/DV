@@ -199,7 +199,7 @@ module example_calc1_tb;
 
 	// TEST 9 
 	#400
-	for(x=1; x<(31); x=(x^2)) begin
+	for(x=1; x<(31); x=(2^x)) begin
 			$display("%b\n",x);
 			#400
 			req1_cmd_in = 1;
