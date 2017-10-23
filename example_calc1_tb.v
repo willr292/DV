@@ -220,7 +220,7 @@ module example_calc1_tb;
 			#1000
 			rd_data1_out = out_data1;
 			if(rd_data1_out != x) begin
-				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", out_data1, x);
+				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_dat1_out, x);
 				end
 		end
 	
