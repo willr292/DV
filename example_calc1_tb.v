@@ -15,7 +15,7 @@ module example_calc1_tb;
 	integer x;
 	integer y;
 
-	unsigned int int_to_int(unsigned int k) {
+	int int_to_int(unsigned int k) {
 	    return (k == 0 || k == 1 ? k : ((k % 2) + 10 * int_to_int(k / 2)));
 	}
 
