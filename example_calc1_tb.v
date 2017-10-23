@@ -15,7 +15,7 @@ module example_calc1_tb;
 	integer x;
 	integer y;
 
-	integer rd_data1_out
+	integer rd_data1_out;
 
    initial 
      begin
