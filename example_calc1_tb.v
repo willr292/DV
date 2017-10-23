@@ -220,17 +220,21 @@ module example_calc1_tb;
 	*/
 	//TEST 10
 	#400
-		req1_cmd_in = 1;
-	req1_data_in = 32'b0000_0000_0000_1111_0000_1111_0000_1111;
-	#100
-	req1_cmd_in = 0;
-	req1_data_in = 32'b0000_0000_0000_0000_0000_1111_0000_1111;
-	#1000
-	#10 $display("what happens if wait too long for next data %d %d\n", out_resp1, out_data1);
-	#200
-	#10 $display("done testing TEST M1");
-	#200
+	for (x=0; x<4294967295; x=x+1) begin
+			req1_cmd_in = 1;
+		req1_data_in = x;
+		req2_cmd_in = 0;
+		req2_data_in = 0;
+		req3_cmd_in = 0;
+		req3_data_in = 0;
+		req4_cmd_in = 0;
+		req4_data_in = 0;
 
+		#200
+		
+		req1_cmd_in = 0;
+		req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
+	end
 
 	#2000 $stop;
 
