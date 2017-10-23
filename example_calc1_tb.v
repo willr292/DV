@@ -199,9 +199,9 @@ module example_calc1_tb;
 
 	// TEST 9 
 	#400
-	for(x=1; x<(31); x=(2^x)) begin
+	for(x=1; x<(31); x=(x<<1) begin
 			$display("%b\n",x);
-			#400
+			#1000
 			req1_cmd_in = 1;
 			req1_data_in = x;
 			req2_cmd_in = 0;
@@ -210,11 +210,11 @@ module example_calc1_tb;
 			req3_data_in = 0;
 			req4_cmd_in = 0;
 			req4_data_in = 0;
-			#600
+			#1000
 			req1_cmd_in = 0;
 			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 
-			#400
+			#1000
 
 			if(out_data1 != x) begin
 				$display("ANSWER WAS NOT CORRECT, out data was %b when answer should be %b\n", out_data1, x);
