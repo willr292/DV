@@ -199,8 +199,8 @@ module example_calc1_tb;
 
 	// TEST 9 
 	#400
-	for(x=1; x<(10000); x=x+1) begin
-			$display("%b",x);
+	for(x=1; x<(1000000); x=x+1) begin
+			$display("%b\n",x);
 			#400
 			req1_cmd_in = 1;
 			req1_data_in = x;
@@ -217,7 +217,7 @@ module example_calc1_tb;
 			#400
 
 			if(out_data1 != x) begin
-				$display("ANSWER WAS NOT CORRECT, out data was %b when answer should be %b", out_data1, x);
+				$display("ANSWER WAS NOT CORRECT, out data was %b when answer should be %b\n", out_data1, x);
 				end
 		end
 	/*
