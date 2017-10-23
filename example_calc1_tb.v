@@ -197,28 +197,24 @@ module example_calc1_tb;
 
 	$display("Output response is: %d, and answer is %d\n", out_resp1, out_data1);
 
-	/*
 	// TEST 9 
 	#400
-	for(x=; x<; x=x+1) begin
-		for(y=; y<; y=y+1) begin
+	for(x=0; x<(2^32); x=x+1) begin
+		
 			#400
 			req1_cmd_in = 1;
 			req1_data_in = x;
 			#400
 			req1_cmd_in = 0;
-			req1_data_in = y;
+			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 
 			#400
-			if(out_data1 != ) begin
-				$display("ANSWER WAS NOT CORRECT");
+			if(out_data1 != x) begin
+				$display("ANSWER WAS NOT CORRECT, out data was %b when answer should be %b", out_data1, x);
 				end
-
-
-			end
 		end
-	*/
-	//TEST 10
+	/*
+	//TEST 10 
 	#400
 	for (x=0; x<4294967295; x=x+1) begin
 			req1_cmd_in = 1;
@@ -235,7 +231,7 @@ module example_calc1_tb;
 		req1_cmd_in = 0;
 		req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 	end
-
+*/
 	#2000 $stop;
 
 
