@@ -218,9 +218,10 @@ module example_calc1_tb;
 			#1000
 
 			if(out_data1 != x) begin
-				$display("ANSWER WAS NOT CORRECT, out data was %b when answer should be %b\n", out_data1, x);
+				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", out_data1, x);
 				end
 		end
+	
 	/*
 	//TEST 10 
 	#400
