@@ -199,7 +199,7 @@ module example_calc1_tb;
 
 	// TEST 9 
 	#400
-	for(x=0; x<(5); x=x+1) begin
+	for(x=1; x<(5); x=x+1) begin
 		
 			#400
 			req1_cmd_in = 1;
