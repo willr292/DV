@@ -190,7 +190,7 @@ module example_calc1_tb;
 
 	repeat(31) begin : add
 			
-			#400
+			#200
 
 			req1_cmd_in = 1;
 			req1_data_in = x;
@@ -212,11 +212,11 @@ module example_calc1_tb;
 			
 			if(rd_data1_out != x) begin
 				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, x);
-			end
+				end
 
 			if(rd_data1_out == x) begin
 				$display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data1_out, x);
-			end
+				end
 
 			x=(x<<1);
 		end : add
