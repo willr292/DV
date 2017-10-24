@@ -16,7 +16,7 @@ module example_calc1_tb;
 	integer y;
 
 	integer rd_data1_out;
-	integer int_max = 32'b1111_1111_1111_1111_1111_1111_1111_1111;
+	integer rd_resp1_out;
 
    initial 
      begin
@@ -113,9 +113,10 @@ module example_calc1_tb;
 	req1_cmd_in = 0;
 	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 
-	#200
-
-	$display("Output response is: %b\n and data out is %b\n", out_resp1, out_data1);
+	#10
+	rd_data1_out = out_data1;
+	rd_resp1_out = out_resp1;
+	$display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);
 
 
 	// TEST 5:
@@ -156,9 +157,11 @@ module example_calc1_tb;
 	req4_cmd_in = 0;
 	req4_data_in = 0;
 
-	#200
-
-	$display("Output response is: %d\n", out_resp1);
+	#10
+	rd_data1_out = out_data1;
+	rd_resp1_out = out_resp1;
+	$display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);
+	
 
 	// TEST 7: Invalid command 4
 	$display("Testing for invalid command 4\n",);
@@ -174,12 +177,13 @@ module example_calc1_tb;
 	req4_cmd_in = 0;
 	req4_data_in = 0;
 
-	#200
-
-	$display("Output response is: %d\n", out_resp1);
+	#10
+	rd_data1_out = out_data1;
+	rd_resp1_out = out_resp1;
+	$display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);
 
 	// TEST 8: underflow error
-
+	$display("Checking for underflow error correct report\n",);
         #400
 	  
         req1_cmd_in = 2;
@@ -199,12 +203,14 @@ module example_calc1_tb;
 	#10
 
 	rd_data1_out = out_data1;
-	$display("Output response is: %d, and answer is %d\n", out_resp1, rd_data1_out);
+	rd_resp1_out = out_resp1;
+	$display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);
 
 	// TEST 9 Addition for each bit
 	#400
+	$display("Testing addition on each bit");
 	x = 1;
-	repeat(32) begin
+	repeat(31) begin
 			
 			//$display("%b\n",x);
 			#200
