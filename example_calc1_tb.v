@@ -233,7 +233,7 @@ module example_calc1_tb;
 
 			#200
 
-			req1_cmd_in = 1;
+			req1_cmd_in = 5s;
 			req1_data_in = y;
 			req2_cmd_in = 0;
 			req2_data_in = 0;
