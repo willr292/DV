@@ -218,6 +218,7 @@ module example_calc1_tb;
 				$display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data1_out, x);
 				end
 
+      #200
 			x=(x<<1);
 		end : add
 
@@ -229,7 +230,7 @@ module example_calc1_tb;
 
 	y = 1;
 
-	repeat(31) begin : leftshift
+	repeat(30) begin : leftshift
 
 			#200
 
@@ -259,6 +260,7 @@ module example_calc1_tb;
 				$display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data1_out, (y<<1));
 				end
 
+      #200  
 			y=(y<<1);
 		end : leftshift
 
