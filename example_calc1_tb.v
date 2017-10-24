@@ -221,7 +221,7 @@ module example_calc1_tb;
 			x=(x<<1);
 		end : add
 	
-// TEST 10 Left Shift for each bit
+// TEST 10 Left Shift for each bit.
 	
 	#400
 	
