@@ -1,7 +1,9 @@
-module addition_calc1_tb (req1_cmd_in, req1_data_in, out_data1);
+module addition_calc1_tb (cmd_in, data_in, data_out, clk);
 
-input reg [0:3] req1_cmd_in, wire [0:31] req1_data_in;
-output wire [0:31] out_data1;
+input reg [0:3] cmd_in;
+input wire [0:31] data_in;
+input reg clk
+output wire [0:31] data_out;
 
 integer x;
 integer rd_data_out;
