@@ -203,7 +203,7 @@ module example_calc1_tb;
 	#400
 	for(x=1; x<(20000); x=(x<<1)) begin
 			
-			$display("%b\n",x);
+			//$display("%b\n",x);
 			#200
 			req1_cmd_in = 1;
 			req1_data_in = x;
@@ -215,13 +215,16 @@ module example_calc1_tb;
 			req4_data_in = 0;
 			#200
 			req1_cmd_in = 0;
-			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
+			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 
 			#10
 			rd_data1_out = out_data1;
-			if(rd_data1_out != x+1) begin
+			if(rd_data1_out != x) begin
 				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, x);
 				end
+			if(rd_data1_out != x) begin
+				$display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data1_out, x);
+			end
 		end
 	
 	/*
