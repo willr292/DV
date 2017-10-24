@@ -118,31 +118,6 @@ module example_calc1_tb;
 	rd_resp1_out = out_resp1;
 	$display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);
 
-
-	// TEST 5:
-	/*
-	#400
-
-	for(x=0, x<20, x++) {
-
-		req1_cmd_in = 1;
-		req1_data_in = 32'b1111_1111_1111_1111_1111_1111_1111_1111;
-		req2_cmd_in = 0;
-		req2_data_in = 0;
-		req3_cmd_in = 0;
-		req3_data_in = 0;
-		req4_cmd_in = 0;
-		req4_data_in = 0;
-
-		#200
-
-		req1_cmd_in = 0;
-		req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
-
-	}
-	*/
-
-
 	// TEST 6: Invalid command 3
 	$display("Testing for invalid command 3\n",);
 
@@ -162,7 +137,6 @@ module example_calc1_tb;
 	rd_resp1_out = out_resp1;
 	$display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);
 	
-
 	// TEST 7: Invalid command 4
 	$display("Testing for invalid command 4\n",);
 
@@ -237,25 +211,37 @@ module example_calc1_tb;
 			x=(x<<1);
 		end
 	
-	/*
-	//TEST 10 
+// TEST 10 Left Shift for each bit
 	#400
-	for (x=0; x<4294967295; x=x+1) begin
+	$display("Testing addition on each bit");
+	x = 1;
+	repeat(31) begin
+			
+			//$display("%b\n",x);
+			#200
 			req1_cmd_in = 1;
-		req1_data_in = x;
-		req2_cmd_in = 0;
-		req2_data_in = 0;
-		req3_cmd_in = 0;
-		req3_data_in = 0;
-		req4_cmd_in = 0;
-		req4_data_in = 0;
+			req1_data_in = x;
+			req2_cmd_in = 0;
+			req2_data_in = 0;
+			req3_cmd_in = 0;
+			req3_data_in = 0;
+			req4_cmd_in = 0;
+			req4_data_in = 0;
+			#200
+			req1_cmd_in = 0;
+			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 
-		#200
-		
-		req1_cmd_in = 0;
-		req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
-	end
-*/
+			#10
+			rd_data1_out = out_data1;
+			if(rd_data1_out != x) begin
+				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, x);
+				end
+			if(rd_data1_out == x) begin
+				$display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data1_out, x);
+			end
+			x=(x<<1);
+		end
+	
 	#2000 $stop;
 
 
