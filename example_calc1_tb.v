@@ -213,7 +213,7 @@ module example_calc1_tb;
 			req3_data_in = 0;
 			req4_cmd_in = 0;
 			req4_data_in = 0;
-			#10
+			#200
 			req1_cmd_in = 0;
 			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 
@@ -222,7 +222,7 @@ module example_calc1_tb;
 			if(rd_data1_out != x) begin
 				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, x);
 				end
-			if(rd_data1_out != x) begin
+			if(rd_data1_out == x) begin
 				$display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data1_out, x);
 			end
 		end
