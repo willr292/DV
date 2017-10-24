@@ -16,6 +16,7 @@ module example_calc1_tb;
 	integer y;
 
 	integer rd_data1_out;
+	integer int_max = 32'b1111_1111_1111_1111_1111_1111_1111_1111;
 
    initial 
      begin
@@ -202,7 +203,7 @@ module example_calc1_tb;
 
 	// TEST 9 Addition for each bit
 	#400
-	for(x=1; x<(INT_MAX); x=(x<<1)) begin
+	for(x=1; x<(int_max); x=(x<<1)) begin
 			
 			//$display("%b\n",x);
 			#200
