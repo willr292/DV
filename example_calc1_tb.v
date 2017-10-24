@@ -203,7 +203,8 @@ module example_calc1_tb;
 
 	// TEST 9 Addition for each bit
 	#400
-	for(x=1; x<(int_max); x=(x<<1)) begin
+	integer x = 1;
+	repeat(31) begin
 			
 			//$display("%b\n",x);
 			#200
@@ -227,6 +228,7 @@ module example_calc1_tb;
 			if(rd_data1_out == x) begin
 				$display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data1_out, x);
 			end
+			x=(x<<1);
 		end
 	
 	/*
