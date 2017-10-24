@@ -203,7 +203,7 @@ module example_calc1_tb;
 
 	// TEST 9 Addition for each bit
 	#400
-	integer x = 1;
+	x = 1;
 	repeat(31) begin
 			
 			//$display("%b\n",x);
