@@ -1,9 +1,9 @@
 module addition_calc1_tb (cmd_in, data_in, data_out, clk);
 
-input reg [0:3] cmd_in;
-input wire [0:31] data_in;
-input reg clk
-input wire [0:31] data_out;
+input cmd_in;
+input data_in;
+input clk
+input data_out;
 
 integer x;
 integer rd_data_out;
