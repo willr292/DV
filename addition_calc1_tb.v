@@ -1,10 +1,10 @@
-module addition_calc1_tb (cmd_in, data_in, data_out, clk);
+module addition_calc1_tb (
 
 input cmd_in;
 input data_in;
 input clk;
 output data_out;
-
+)
 wire [0:31] data_out;
 reg [0:31] data_in;
 reg 	         c_clk;
