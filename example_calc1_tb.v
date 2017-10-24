@@ -181,14 +181,54 @@ module example_calc1_tb;
 	$display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);
 
 	// TEST 9 Addition for each bit
+	
 	#400
+	
 	$display("Testing addition on each bit");
+	
+	x = 1;
+
+	repeat(31) begin
+			
+			#200
+
+			req1_cmd_in = 1;
+			req1_data_in = x;
+			req2_cmd_in = 0;
+			req2_data_in = 0;
+			req3_cmd_in = 0;
+			req3_data_in = 0;
+			req4_cmd_in = 0;
+			req4_data_in = 0;
+
+			#200
+
+			req1_cmd_in = 0;
+			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+
+			#10
+
+			rd_data1_out = out_data1;
+			
+			if(rd_data1_out != x) begin
+				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, x);
+			end
+
+			if(rd_data1_out == x) begin
+				$display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data1_out, x);
+			end
+
+			x=(x<<1);
+		end
+	
+// TEST 10 Left Shift for each bit
+	#400
+	$display("Testing left shift on each bit");
 	x = 1;
 	repeat(31) begin
 			
-			//$display("%b\n",x);
 			#200
-			req1_cmd_in = 1;
+			req1_cmd_in = 5;
 			req1_data_in = x;
 			req2_cmd_in = 0;
 			req2_data_in = 0;
@@ -198,49 +238,18 @@ module example_calc1_tb;
 			req4_data_in = 0;
 			#200
 			req1_cmd_in = 0;
-			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 
 			#10
 			rd_data1_out = out_data1;
-			if(rd_data1_out != x) begin
-				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, x);
+			if(rd_data1_out != x<<1) begin
+				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, x<<1);
 				end
-			if(rd_data1_out == x) begin
-				$display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data1_out, x);
+			if(rd_data1_out == x<<1) begin
+				$display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data1_out, x<<1);
 			end
 			x=(x<<1);
 		end
-	
-// TEST 10 Left Shift for each bit
-	// #400
-	// $display("Testing addition on each bit");
-	// x = 1;
-	// repeat(31) begin
-			
-	// 		//$display("%b\n",x);
-	// 		#200
-	// 		req1_cmd_in = 1;
-	// 		req1_data_in = x;
-	// 		req2_cmd_in = 0;
-	// 		req2_data_in = 0;
-	// 		req3_cmd_in = 0;
-	// 		req3_data_in = 0;
-	// 		req4_cmd_in = 0;
-	// 		req4_data_in = 0;
-	// 		#200
-	// 		req1_cmd_in = 0;
-	// 		req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
-
-	// 		#10
-	// 		rd_data1_out = out_data1;
-	// 		if(rd_data1_out != x) begin
-	// 			$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, x);
-	// 			end
-	// 		if(rd_data1_out == x) begin
-	// 			$display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data1_out, x);
-	// 		end
-	// 		x=(x<<1);
-	// 	end
 	
 	#2000 $stop;
 
