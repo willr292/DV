@@ -225,7 +225,7 @@ module example_calc1_tb;
 	#400
 	$display("Testing left shift on each bit");
 	y = 1;
-	repeat(31) begin
+	repeat(31) begin : leftshift
 			
 			#400
 			req1_cmd_in = 5;
@@ -250,7 +250,7 @@ module example_calc1_tb;
 				$display("ANSWER WAS CORRECT, out data was %d and answer is %d and response is %d\n", rd_data1_out, y<<1, rd_resp1_out);
 				end
 			y=(y<<1);
-		end
+		end : leftshift
 	
 	#2000 $stop;
 
