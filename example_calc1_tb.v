@@ -224,12 +224,12 @@ module example_calc1_tb;
 // TEST 10 Left Shift for each bit
 	#400
 	$display("Testing left shift on each bit");
-	x = 1;
+	y = 1;
 	repeat(31) begin
 			
 			#400
 			req1_cmd_in = 5;
-			req1_data_in = x;
+			req1_data_in = y;
 			req2_cmd_in = 0;
 			req2_data_in = 0;
 			req3_cmd_in = 0;
@@ -243,13 +243,13 @@ module example_calc1_tb;
 			#10
 			rd_data1_out = out_data1;
 			rd_resp1_out = out_resp1;
-			if(rd_data1_out != x<<1) begin
-				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d and response is %d\n", rd_data1_out, x<<1, rd_resp1_out);
+			if(rd_data1_out != y<<1) begin
+				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d and response is %d\n", rd_data1_out, y<<1, rd_resp1_out);
 				end
-			if(rd_data1_out == x<<1) begin
-				$display("ANSWER WAS CORRECT, out data was %d and answer is %d and response is %d\n", rd_data1_out, x<<1, rd_resp1_out);
+			if(rd_data1_out == y<<1) begin
+				$display("ANSWER WAS CORRECT, out data was %d and answer is %d and response is %d\n", rd_data1_out, y<<1, rd_resp1_out);
 			end
-			x=(x<<1);
+			y=(y<<1);
 		end
 	
 	#2000 $stop;
