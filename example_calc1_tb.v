@@ -204,7 +204,7 @@ module example_calc1_tb;
 	// TEST 9 Addition for each bit
 	#400
 	x = 1;
-	repeat(31) begin
+	repeat(32) begin
 			
 			//$display("%b\n",x);
 			#200
