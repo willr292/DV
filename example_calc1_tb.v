@@ -251,7 +251,7 @@ module example_calc1_tb;
 
 			rd_data1_out = out_data1;
 			
-			if(rd_data1_out != (y<<1) begin
+			if(rd_data1_out != (y<<1)) begin
 				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, (y<<1);
 				end
 
