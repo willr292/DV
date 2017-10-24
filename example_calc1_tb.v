@@ -4,21 +4,21 @@ module example_calc1_tb;
 
    wire [0:31]   out_data1, out_data2, out_data3, out_data4;
    wire [0:1]    out_resp1, out_resp2, out_resp3, out_resp4;
-   
+
    reg 	         c_clk;
    reg [0:3] 	 req1_cmd_in, req2_cmd_in, req3_cmd_in, req4_cmd_in;
    reg [0:31]    req1_data_in, req2_data_in, req3_data_in, req4_data_in;
    reg [1:7] 	 reset;
 
    calc1 DUV(out_data1, out_data2, out_data3, out_data4, out_resp1, out_resp2, out_resp3, out_resp4, c_clk, req1_cmd_in, req1_data_in, req2_cmd_in, req2_data_in, req3_cmd_in, req3_data_in, req4_cmd_in, req4_data_in, reset);
-   
+
 	integer x;
 	integer y;
 
 	integer rd_data1_out;
 	integer rd_resp1_out;
 
-   initial 
+   initial
      begin
 	c_clk = 0;
 	req1_cmd_in = 0;
@@ -28,23 +28,23 @@ module example_calc1_tb;
 	req3_cmd_in = 0;
 	req3_data_in = 0;
 	req4_data_in = 0;
-     end   
-	
+     end
+
    always #100 c_clk = ~c_clk;
-   
+
    initial
      begin
 
         // First drive reset. Driving bit 1 is enough to reset the design.
 
 	reset[1] = 1;
-	#800 
+	#800
 	reset[1] = 0;
 
 	// TEST 1: 1h + 1FF_FFFFh = 200_0000 ?
 
         #400
-	  
+
         req1_cmd_in = 1;
 	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 	req2_cmd_in = 0;
@@ -55,14 +55,14 @@ module example_calc1_tb;
 	req4_data_in = 0;
 
 	#200
-	
+
 	req1_cmd_in = 0;
 	req1_data_in = 32'b0001_1111_1111_1111_1111_1111_1111_1111;
-				
+
 	// TEST 2: 1FF_FFFFh + 1FF_FFFFh =  3FFF_FFFE ?
 
         #400
-	  
+
         req1_cmd_in = 1;
 	req1_data_in = 32'h1FFF_FFFF;
 	req2_cmd_in = 0;
@@ -73,13 +73,13 @@ module example_calc1_tb;
 	req4_data_in = 0;
 
 	#200
-	
+
 	req1_cmd_in = 0;
 	req1_data_in = 32'h1FFF_FFFF;
-				
+
 	// TEST 3: 0+0=0 ?
 
-	#400 
+	#400
 
         req1_cmd_in = 1;
 	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
@@ -91,7 +91,7 @@ module example_calc1_tb;
 	req4_data_in = 0;
 
 	#200
-	
+
 	req1_cmd_in = 0;
 	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 
@@ -136,7 +136,7 @@ module example_calc1_tb;
 	rd_data1_out = out_data1;
 	rd_resp1_out = out_resp1;
 	$display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);
-	
+
 	// TEST 7: Invalid command 4
 	$display("Testing for invalid command 4\n",);
 
@@ -159,7 +159,7 @@ module example_calc1_tb;
 	// TEST 8: underflow error
 	$display("Checking for underflow error correct report\n",);
         #400
-	  
+
         req1_cmd_in = 2;
 	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 	req2_cmd_in = 0;
@@ -170,7 +170,7 @@ module example_calc1_tb;
 	req4_data_in = 0;
 
 	#200
-	
+
 	req1_cmd_in = 0;
 	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_1111;
 
@@ -181,15 +181,15 @@ module example_calc1_tb;
 	$display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);
 
 	// TEST 9 Addition for each bit
-	
+
 	#400
-	
+
 	$display("Testing addition on each bit");
-	
+
 	x = 1;
 
 	repeat(31) begin : add
-			
+
 			#200
 
 			req1_cmd_in = 1;
@@ -209,7 +209,7 @@ module example_calc1_tb;
 			#10
 
 			rd_data1_out = out_data1;
-			
+
 			if(rd_data1_out != x) begin
 				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, x);
 				end
@@ -220,17 +220,17 @@ module example_calc1_tb;
 
 			x=(x<<1);
 		end : add
-	
+
 // TEST 10 Left Shift for each bit.
-	
+
 	#400
-	
+
 	$display("Testing left shift on each bit");
-	
+
 	y = 1;
 
 	repeat(31) begin : leftshift
-			
+
 			#200
 
 			req1_cmd_in = 1;
@@ -250,7 +250,7 @@ module example_calc1_tb;
 			#10
 
 			rd_data1_out = out_data1;
-			
+
 			if(rd_data1_out != (y<<1)) begin
 				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, (y<<1);
 				end
@@ -261,7 +261,7 @@ module example_calc1_tb;
 
 			y=(y<<1);
 		end : leftshift
-	
+
 	#2000 $stop;
 
 
@@ -270,12 +270,9 @@ module example_calc1_tb;
      	/*
    always
      @ (reset or req1_cmd_in or req1_data_in or req2_cmd_in or req2_data_in or req3_cmd_in or req3_data_in or req4_cmd_in or req4_data_in) begin
-	
+
 	$display ("%t: r:%b \n 1c:%d,1d:%d \n 2c:%d,2d:%d \n 3c:%d,3d:%d \n 4c:%d,4d:%d \n 1r:%d,1d:%d \n 2r:%d,2d:%d \n 3r:%d,3d:%d \n 4r:%d,4d:%d \n\n", $time, reset[1], req1_cmd_in, req1_data_in, req2_cmd_in, req2_data_in, req3_cmd_in, req3_data_in, req4_cmd_in, req4_data_in, out_resp1, out_data1, out_resp2, out_data2, out_resp3, out_data3, out_resp4, out_data4);
-	
+
      end
 	*/
 endmodule // example_calc1_tb
-
-
-   
