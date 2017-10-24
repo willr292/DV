@@ -217,7 +217,7 @@ module example_calc1_tb;
 			req1_cmd_in = 0;
 			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 
-			#200
+			#10
 			rd_data1_out = out_data1;
 			if(rd_data1_out != x+1) begin
 				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, x);
