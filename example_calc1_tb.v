@@ -242,11 +242,12 @@ module example_calc1_tb;
 
 			#10
 			rd_data1_out = out_data1;
+			rd_resp1_out = out_resp1;
 			if(rd_data1_out != x<<1) begin
-				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, x<<1);
+				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d and response is %d\n", rd_data1_out, x<<1, rd_resp1_out);
 				end
 			if(rd_data1_out == x<<1) begin
-				$display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data1_out, x<<1);
+				$display("ANSWER WAS CORRECT, out data was %d and answer is %d and response is %d\n", rd_data1_out, x<<1, rd_resp1_out);
 			end
 			x=(x<<1);
 		end
