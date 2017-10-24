@@ -188,7 +188,7 @@ module example_calc1_tb;
 	
 	x = 1;
 
-	repeat(31) begin
+	repeat(31) begin : add
 			
 			#400
 
@@ -219,7 +219,7 @@ module example_calc1_tb;
 			end
 
 			x=(x<<1);
-		end
+		end : add
 	
 // // TEST 10 Left Shift for each bit
 // 	#400
