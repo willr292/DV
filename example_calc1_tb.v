@@ -195,13 +195,14 @@ module example_calc1_tb;
 	req1_cmd_in = 0;
 	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_1111;
 
-	#800
+	#10
 
-	$display("Output response is: %d, and answer is %d\n", out_resp1, out_data1);
+	rd_data1_out = out_data1;
+	$display("Output response is: %d, and answer is %d\n", out_resp1, rd_data1_out);
 
-	// TEST 9 
+	// TEST 9 Addition for each bit
 	#400
-	for(x=1; x<(20000); x=(x<<1)) begin
+	for(x=1; x<(INT_MAX); x=(x<<1)) begin
 			
 			//$display("%b\n",x);
 			#200
