@@ -1,6 +1,6 @@
 module addition_calc1_tb (cmd_in, data_in, data_out);
 
-input cmd_in, data_in, data_out;
+input [0:3] cmd_in, [0:31] data_in, [0:31] data_out;
 
 integer x;
 integer rd_data_out;
