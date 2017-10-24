@@ -5,10 +5,10 @@ input data_in,
 input clk,
 output data_out
 );
-wire [0:31] data_out;
-reg [0:31] data_in;
-reg 	         c_clk;
-reg [0:3] cmd_in;
+// wire [0:31] data_out;
+// reg [0:31] data_in;
+// reg 	         c_clk;
+// reg [0:3] cmd_in;
 
 integer x;
 integer rd_data_out;
