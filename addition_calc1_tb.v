@@ -2,7 +2,7 @@ module addition_calc1_tb (cmd_in, data_in, data_out, clk);
 
 input cmd_in;
 input data_in;
-input clk
+input clk;
 input data_out;
 
 integer x;
