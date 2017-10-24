@@ -263,7 +263,7 @@ module example_calc1_tb;
 			y=(y<<1);
 		end : leftshift
 
-    addition_calc1_tb port1 (req1_cmd_in, req1_data_in, out_data1, c_clk);
+    addition_calc1_tb port1 (.cmd_in(req1_cmd_in), .data_in(req1_data_in), .data_out(out_data1),.clk(c_clk));
 
 	#2000 $stop;
 
