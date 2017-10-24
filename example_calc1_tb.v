@@ -1,4 +1,5 @@
 `uselib lib=calc1_black_box
+`include "addition_calc1_tb.v"
 
 module example_calc1_tb;
 
@@ -261,6 +262,8 @@ module example_calc1_tb;
 
 			y=(y<<1);
 		end : leftshift
+
+    addition_calc1_tb port1 (req1_cmd_in, req1_data_in, out_data1);
 
 	#2000 $stop;
 
