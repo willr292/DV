@@ -180,7 +180,7 @@ module example_calc1_tb;
   #200
 
   req1_cmd_in = 0;
-  req1_data_in = $random
+  req1_data_in = $random;
   req2_cmd_in = 0;
   req2_data_in = $random;
   req3_cmd_in = 0;
@@ -206,7 +206,7 @@ module example_calc1_tb;
   rd_data3_out,
   rd_resp3_out,
   rd_data4_out,
-  rd_resp4_out)
+  rd_resp4_out);
 
 	// TEST 8: underflow error
 	$display("Checking for underflow error correct report\n",);
