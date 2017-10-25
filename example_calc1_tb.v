@@ -169,7 +169,7 @@ module example_calc1_tb;
   #400
 
     req1_cmd_in = 0;
-  req1_data_in = $random
+  req1_data_in = $random;
   req2_cmd_in = 0;
   req2_data_in = $random;
   req3_cmd_in = 0;
