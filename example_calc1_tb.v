@@ -323,7 +323,7 @@ module example_calc1_tb;
 
     	$display("Testing right shift on each bit");
 
-    	z = 1;
+    	z = 32'b1000_0000_0000_0000_0000_0000_0000_0000;
 
     	repeat(30) begin
 
