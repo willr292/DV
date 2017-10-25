@@ -1,5 +1,4 @@
 `uselib lib=calc1_black_box
-`include "addition_calc1_tb.v"
 
 module example_calc1_tb;
 
@@ -32,6 +31,8 @@ module example_calc1_tb;
      end
 
    always #100 c_clk = ~c_clk;
+
+   `include "addition_calc1_tb.v"
 
    initial
      begin
