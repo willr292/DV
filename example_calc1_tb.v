@@ -14,6 +14,7 @@ module example_calc1_tb;
 
 	integer x;
 	integer y;
+  integer z;
 
 	integer rd_data1_out;
 	integer rd_resp1_out;
@@ -166,6 +167,8 @@ module example_calc1_tb;
 
   //TEST 8: 0 no command with random numbers
 
+  $display("Testing output is 0 on all channels with 0 command.\n")
+
   #400
 
     req1_cmd_in = 0;
@@ -198,7 +201,7 @@ module example_calc1_tb;
 	rd_resp3_out = out_resp3;
   rd_data4_out = out_data4;
 	rd_resp4_out = out_resp4;
-  $display("All outputs and responses should be 0\n port1 data = %d and resp is %d\n port2 data = %d and resp is %d\n port3 data = %d and resp is %d\n port1 data = %d and resp is %d\n",
+  $display("port1 data = %d and resp is %d\n port2 data = %d and resp is %d\n port3 data = %d and resp is %d\n port1 data = %d and resp is %d\n",
   rd_data1_out,
   rd_resp1_out,
   rd_data2_out,
@@ -313,6 +316,47 @@ module example_calc1_tb;
 
 			y=(y<<1);
 		end : leftshift
+
+    // TEST 10 Left Shift for each bit.
+
+    	#400
+
+    	$display("Testing right shift on each bit");
+
+    	z = 1;
+
+    	repeat(30) begin :
+
+    			#200
+
+    			req1_cmd_in = 6;
+    			req1_data_in = z;
+    			req2_cmd_in = 0;
+    			req2_data_in = 0;
+    			req3_cmd_in = 0;
+    			req3_data_in = 0;
+    			req4_cmd_in = 0;
+    			req4_data_in = 0;
+
+    			#200
+
+    			req1_cmd_in = 0;
+    			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
+
+    			#10
+
+    			rd_data1_out = out_data1;
+
+    			if(rd_data1_out != (z>>1)) begin
+    				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, (z>>1));
+    				end
+
+    			if(rd_data1_out == (z>>1)) begin
+    				$display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data1_out, (z>>1));
+    				end
+
+    			z=(z>>1);
+    		end :
 
     //addition_calc1_tb port1(.cmd_in(req1_cmd_in), .data_in(req1_data_in), .data_out(out_data1),.clk(c_clk));
 
