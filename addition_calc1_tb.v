@@ -18,13 +18,13 @@ initial begin
 
       #200
 
-      cmd_in = 1;
-      data_in = x;
+      assign cmd_in = 1;
+      assign data_in = x;
 
       #200
 
-      cmd_in = 0;
-      data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+      assign cmd_in = 0;
+      assign data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 
       #10
 
