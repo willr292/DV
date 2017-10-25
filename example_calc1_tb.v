@@ -167,7 +167,7 @@ module example_calc1_tb;
 
   //TEST 8: 0 no command with random numbers
 
-  $display("Testing output is 0 on all channels with 0 command.\n")
+  $display("Testing output is 0 on all channels with 0 command.\n");
 
   #400
 
@@ -325,7 +325,7 @@ module example_calc1_tb;
 
     	z = 1;
 
-    	repeat(30) begin :
+    	repeat(30) begin
 
     			#200
 
@@ -356,7 +356,7 @@ module example_calc1_tb;
     				end
 
     			z=(z>>1);
-    		end :
+    		end
 
     //addition_calc1_tb port1(.cmd_in(req1_cmd_in), .data_in(req1_data_in), .data_out(out_data1),.clk(c_clk));
 
