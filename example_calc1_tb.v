@@ -198,7 +198,7 @@ module example_calc1_tb;
 	rd_resp3_out = out_resp3;
   rd_data4_out = out_data4;
 	rd_resp4_out = out_resp4;
-  $display("All outputs and responses should be 0 port1 data = %d and resp is %d\n port2 data = %d and resp is %d\n port3 data = %d and resp is %d\n port1 data = %d and resp is %d\n",
+  $display("All outputs and responses should be 0\n port1 data = %d and resp is %d\n port2 data = %d and resp is %d\n port3 data = %d and resp is %d\n port1 data = %d and resp is %d\n",
   rd_data1_out,
   rd_resp1_out,
   rd_data2_out,
