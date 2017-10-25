@@ -320,7 +320,7 @@ module example_calc1_tb;
     // TEST 10 Left Shift for each bit.
 
     	#400
-
+      rd_data1_out = 0;
     	$display("Testing right shift on each bit");
 
     	z = 32'b1000_0000_0000_0000_0000_0000_0000_0000;
