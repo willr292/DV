@@ -328,7 +328,7 @@ module example_calc1_tb;
     	repeat(30) begin
 
     			#200
-          $display("%d\n", z);
+          
     			req1_cmd_in = 6;
     			req1_data_in = z;
     			req2_cmd_in = 0;
@@ -343,7 +343,7 @@ module example_calc1_tb;
     			req1_cmd_in = 0;
     			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 
-    			#10
+    			#100
 
     			rd_data1_out = out_data1;
 
