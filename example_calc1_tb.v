@@ -17,6 +17,12 @@ module example_calc1_tb;
 
 	integer rd_data1_out;
 	integer rd_resp1_out;
+  integer rd_data2_out;
+	integer rd_resp2_out;
+  integer rd_data3_out;
+	integer rd_resp3_out;
+  integer rd_data4_out;
+	integer rd_resp4_out;
 
    initial
      begin
@@ -157,6 +163,50 @@ module example_calc1_tb;
 	rd_data1_out = out_data1;
 	rd_resp1_out = out_resp1;
 	$display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);
+
+  //TEST 8: 0 no command with random numbers
+
+  #400
+
+    req1_cmd_in = 0;
+  req1_data_in = $random
+  req2_cmd_in = 0;
+  req2_data_in = $random;
+  req3_cmd_in = 0;
+  req3_data_in = $random;
+  req4_cmd_in = 0;
+  req4_data_in = $random;
+
+  #200
+
+  req1_cmd_in = 0;
+  req1_data_in = $random
+  req2_cmd_in = 0;
+  req2_data_in = $random;
+  req3_cmd_in = 0;
+  req3_data_in = $random;
+  req4_cmd_in = 0;
+  req4_data_in = $random;
+
+  #10
+
+  rd_data1_out = out_data1;
+	rd_resp1_out = out_resp1;
+  rd_data2_out = out_data2;
+	rd_resp2_out = out_resp2;
+  rd_data3_out = out_data3;
+	rd_resp3_out = out_resp3;
+  rd_data4_out = out_data4;
+	rd_resp4_out = out_resp4;
+  $display("All outputs and responses should be 0 port1 data = %d and resp is %d\n port2 data = %d and resp is %d\n port3 data = %d and resp is %d\n port1 data = %d and resp is %d\n",
+  rd_data1_out,
+  rd_resp1_out,
+  rd_data2_out,
+  rd_resp2_out,
+  rd_data3_out,
+  rd_resp3_out,
+  rd_data4_out,
+  rd_resp4_out)
 
 	// TEST 8: underflow error
 	$display("Checking for underflow error correct report\n",);
