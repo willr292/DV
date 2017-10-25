@@ -317,7 +317,7 @@ module example_calc1_tb;
 			y=(y<<1);
 		end : leftshift
 
-    // TEST 10 Left Shift for each bit.
+    // TEST 10 Right Shift for each bit.
 
     	#400
       rd_data1_out = 0;
@@ -328,7 +328,7 @@ module example_calc1_tb;
     	repeat(30) begin
 
     			#200
-
+          $display("%d\n", z);
     			req1_cmd_in = 6;
     			req1_data_in = z;
     			req2_cmd_in = 0;
