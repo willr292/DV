@@ -1,5 +1,5 @@
 `uselib lib=calc1_black_box
-`include "addition_calc1_tb"
+`include "addition_calc1_tb.v"
 
 module example_calc1_tb;
 
