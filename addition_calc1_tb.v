@@ -1,10 +1,5 @@
 module addition_calc1_tb (cmd_in, data_in, clk, data_out);
 
-net data_out;
-net data_in;
-net c_clk;
-net cmd_in;
-
 integer x;
 integer rd_data_out;
 
