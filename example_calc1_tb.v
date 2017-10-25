@@ -32,7 +32,7 @@ module example_calc1_tb;
 
    always #100 c_clk = ~c_clk;
 
-   `include "addition_calc1_tb.v"
+  // `include "addition_calc1_tb.v"
 
    initial
      begin
@@ -264,7 +264,7 @@ module example_calc1_tb;
 			y=(y<<1);
 		end : leftshift
 
-    addition_calc1_tb port1(.cmd_in(req1_cmd_in), .data_in(req1_data_in), .data_out(out_data1),.clk(c_clk));
+    \\addition_calc1_tb port1(.cmd_in(req1_cmd_in), .data_in(req1_data_in), .data_out(out_data1),.clk(c_clk));
 
 	#2000 $stop;
 
