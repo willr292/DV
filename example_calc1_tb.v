@@ -329,10 +329,10 @@ module example_calc1_tb;
 
     			#200
 
-    			req1_cmd_in = 6;
-    			req1_data_in = z;
-    			req2_cmd_in = 0;
-    			req2_data_in = 0;
+    			req1_cmd_in = 0;
+    			req1_data_in = 0;
+    			req2_cmd_in = 6;
+    			req2_data_in = z;
     			req3_cmd_in = 0;
     			req3_data_in = 0;
     			req4_cmd_in = 0;
@@ -340,19 +340,19 @@ module example_calc1_tb;
 
     			#200
 
-    			req1_cmd_in = 0;
-    			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
+    			req2_cmd_in = 0;
+    			req2_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 
     			#10
 
-    			rd_data1_out = out_data1;
+    			rd_data2_out = out_data2;
 
     			if(rd_data1_out != (z>>1)) begin
-    				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, (z>>1));
+    				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data2_out, (z>>1));
     				end
 
     			if(rd_data1_out == (z>>1)) begin
-    				$display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data1_out, (z>>1));
+    				$display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data2_out, (z>>1));
     				end
 
     			z=(z>>1);
