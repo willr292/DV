@@ -329,10 +329,10 @@ module example_calc1_tb;
 
     			#200
 
-    			req1_cmd_in = 0;
-    			req1_data_in = 0;
-    			req2_cmd_in = 6;
-    			req2_data_in = z;
+    			req1_cmd_in = 6;
+    			req1_data_in = z;
+    			req2_cmd_in = 0;
+    			req2_data_in = 0;
     			req3_cmd_in = 0;
     			req3_data_in = 0;
     			req4_cmd_in = 0;
@@ -340,8 +340,8 @@ module example_calc1_tb;
 
     			#200
 
-    			req2_cmd_in = 0;
-    			req2_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
+    			req1_cmd_in = 0;
+    			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 
     			#10
 
