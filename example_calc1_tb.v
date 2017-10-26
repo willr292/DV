@@ -108,7 +108,7 @@ module example_calc1_tb;
 	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 
 	// TEST 4: Overflow error
-	$display("Test for overflow error, adding 1 to max\n");
+	$display("Test for overflow error on port 1, adding 1 to max\n");
 	#400
 
 		req1_cmd_in = 1;
@@ -129,6 +129,76 @@ module example_calc1_tb;
 	rd_data1_out = out_data1;
 	rd_resp1_out = out_resp1;
 	$display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);
+
+  // TEST 5: Overflow error port 2
+  $display("Test for overflow error on port 2, adding 1 to max\n");
+  #400
+
+    req1_cmd_in = 0;
+  req1_data_in = 0;
+  req2_cmd_in = 1;
+  req2_data_in = 32'b1111_1111_1111_1111_1111_1111_1111_1111;
+  req3_cmd_in = 0;
+  req3_data_in = 0;
+  req4_cmd_in = 0;
+  req4_data_in = 0;
+
+  #200
+
+  req2_cmd_in = 0;
+  req2_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
+
+  #200
+  rd_data2_out = out_data2;
+  rd_resp2_out = out_resp2;
+  $display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp2_out, rd_data2_out);
+
+  // TEST 6: Overflow error port 3
+  $display("Test for overflow error on port 3, adding 1 to max\n");
+  #400
+
+    req1_cmd_in = 0;
+  req1_data_in = 0;
+  req2_cmd_in = 0;
+  req2_data_in = 0;
+  req3_cmd_in = 1;
+  req3_data_in = 32'b1111_1111_1111_1111_1111_1111_1111_1111;
+  req4_cmd_in = 0;
+  req4_data_in = 0;
+
+  #200
+
+  req3_cmd_in = 0;
+  req3_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
+
+  #200
+  rd_data3_out = out_data3;
+  rd_resp3_out = out_resp3;
+  $display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp3_out, rd_data3_out);
+
+  // TEST 7: Overflow error port 4
+  $display("Test for overflow error on port 4, adding 1 to max\n");
+  #400
+
+    req1_cmd_in = 0;
+  req1_data_in = 0;
+  req2_cmd_in = 0;
+  req2_data_in = 0;
+  req3_cmd_in = 0;
+  req3_data_in = 0;
+  req4_cmd_in = 1;
+  req4_data_in = 32'b1111_1111_1111_1111_1111_1111_1111_1111;
+
+  #200
+
+  req4_cmd_in = 0;
+  req4_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
+
+  #200
+  rd_data4_out = out_data4;
+  rd_resp4_out = out_resp4;
+  $display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp4_out, rd_data4_out);
+
 
 	// TEST 6: Invalid command 3
 	$display("Testing for invalid command 3\n",);
