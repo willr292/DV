@@ -1,4 +1,4 @@
-module addition_calc1_tb (cmd_in, data_in, clk, data_out);
+module addition_calc1_tb (cmd_in, data_in, data_out, clk);
 
 integer x;
 integer rd_data_out;
