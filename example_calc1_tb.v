@@ -15,6 +15,7 @@ module example_calc1_tb;
 	integer x;
 	integer y;
   integer z;
+  integer a;
 
 	integer rd_data1_out;
 	integer rd_resp1_out;
@@ -302,7 +303,7 @@ module example_calc1_tb;
 			req1_cmd_in = 0;
 			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 
-			#10
+			#100
 
 			rd_data1_out = out_data1;
 
@@ -358,6 +359,33 @@ module example_calc1_tb;
     			z=(z>>1);
     		end
 
+        a = 1;
+        repeat(31) begin
+        req1_cmd_in = 5;
+        req1_data_in = 1;
+        req2_cmd_in = 0;
+        req2_data_in = 0;
+        req3_cmd_in = 0;
+        req3_data_in = 0;
+        req4_cmd_in = 0;
+        req4_data_in = 0;
+
+        #200
+
+        req1_cmd_in = 0;
+        req1_data_in = a;
+        rd_data1_out = out_data1;
+
+        if(rd_data1_out != (1<<a)) begin
+          $display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, (1<<a));
+          end
+
+        if(rd_data1_out == (1<<a)) begin
+          $display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data1_out, (1<<a));
+          end
+
+        a=a+1;
+        end
     //addition_calc1_tb port1(.cmd_in(req1_cmd_in), .data_in(req1_data_in), .data_out(out_data1),.clk(c_clk));
 
 	#2000 $stop;
