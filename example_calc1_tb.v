@@ -380,11 +380,11 @@ module example_calc1_tb;
         rd_data1_out = out_data1;
 
         if(rd_data1_out != (1<<a)) begin
-          $display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data1_out, (1<<a));
+          $display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", $unsigned(rd_data1_out), (1<<a));
           end
 
         if(rd_data1_out == (1<<a)) begin
-          $display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data1_out, (1<<a));
+          $display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", $unsigned(rd_data1_out), (1<<a));
           end
 
         a=a+1;
