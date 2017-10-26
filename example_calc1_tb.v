@@ -358,7 +358,7 @@ module example_calc1_tb;
 
     			z=(z>>1);
     		end
-
+        $display("Testing left shift");
         a = 1;
         repeat(31) begin
         req1_cmd_in = 5;
@@ -374,6 +374,9 @@ module example_calc1_tb;
 
         req1_cmd_in = 0;
         req1_data_in = a;
+
+        #200
+
         rd_data1_out = out_data1;
 
         if(rd_data1_out != (1<<a)) begin
