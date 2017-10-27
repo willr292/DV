@@ -26,7 +26,7 @@ module example_calc1_tb;
   integer rd_data4_out;
 	integer rd_resp4_out;
 
-  addition_calc1_tb port1(.cmd_in(req1_cmd_in), .data_in(req1_data_in), .data_out(out_data1),.clk(c_clk));
+  //addition_calc1_tb port1(.cmd_in(req1_cmd_in), .data_in(req1_data_in), .data_out(out_data1),.clk(c_clk));
 
    initial
      begin
