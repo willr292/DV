@@ -64,7 +64,7 @@ req3_data_in = $random;
 req4_cmd_in = 0;
 req4_data_in = $random;
 
-#10
+#200
 
 rd_data1_out = out_data1;
 rd_resp1_out = out_resp1;
