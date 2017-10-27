@@ -26,7 +26,7 @@
 			req1_cmd_in = 0;
 			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 
-			#100
+			#10
 
 			rd_data1_out = out_data1;
 
@@ -67,7 +67,7 @@
 			req2_cmd_in = 0;
 			req2_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 
-			#100
+			#10
 
 			rd_data2_out = out_data2;
 
@@ -108,7 +108,7 @@
       req3_cmd_in = 0;
       req3_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 
-      #100
+      #10
 
       rd_data3_out = out_data3;
 
@@ -149,7 +149,7 @@
       req4_cmd_in = 0;
       req4_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 
-      #100
+      #10
 
       rd_data4_out = out_data4;
 
@@ -186,14 +186,14 @@
   req1_cmd_in = 0;
   req1_data_in = a;
 
-  #200
+  #10
 
   rd_data1_out = out_data1;
 
   if(rd_data1_out != (1<<a)) begin
     $display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", $unsigned(rd_data1_out), (1<<a));
     end
-    
+
   if(rd_data1_out == (1<<a)) begin
     $display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", $unsigned(rd_data1_out), (1<<a));
     end

@@ -213,7 +213,7 @@ module example_calc1_tb;
 
 	rd_data1_out = out_data1;
 	rd_resp1_out = out_resp1;
-	$display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);
+	$display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);``
 
     // TEST 10 Right Shift for each bit on port 1.
 
