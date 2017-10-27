@@ -1,6 +1,6 @@
 //INVALID COMMAND TESTS
 
-// TEST 1: Invalid command 3
+// TEST 1: Invalid command 3 port 1
 $display("Testing for invalid command 3 port 1\n",);
 
 #400
@@ -17,7 +17,73 @@ req4_data_in = 0;
 #200
 rd_data1_out = out_data1;
 rd_resp1_out = out_resp1;
-$display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);
+if(rd_resp1_out != 2 || rd_resp1_out != 0) begin
+  $display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);
+  end
+
+// TEST 2: Invalid command 3 port 2
+$display("Testing for invalid command 3 port 2\n",);
+
+#400
+
+  req1_cmd_in = 0;
+req1_data_in = 0;
+req2_cmd_in = 3;
+req2_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
+req3_cmd_in = 0;
+req3_data_in = 0;
+req4_cmd_in = 0;
+req4_data_in = 0;
+
+#200
+rd_data2_out = out_data2;
+rd_resp2_out = out_resp2;
+if(rd_resp2_out != 2 || rd_resp2_out != 0) begin
+  $display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp2_out, rd_data2_out);
+  end
+
+// TEST 3: Invalid command 3 port 3
+$display("Testing for invalid command 3 port 3\n",);
+
+#400
+
+  req1_cmd_in = 0;
+req1_data_in = 0;
+req2_cmd_in = 0;
+req2_data_in = 0;
+req3_cmd_in = 3;
+req3_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
+req4_cmd_in = 0;
+req4_data_in = 0;
+
+#200
+rd_data3_out = out_data3;
+rd_resp3_out = out_resp3;
+if(rd_resp3_out != 2 || rd_resp3_out != 0) begin
+  $display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp3_out, rd_data3_out);
+  end
+
+// TEST 4: Invalid command 3 port 4
+$display("Testing for invalid command 3 port 4\n",);
+
+#400
+
+  req1_cmd_in = 0;
+req1_data_in = 0;
+req2_cmd_in = 0;
+req2_data_in = 0;
+req3_cmd_in = 0;
+req3_data_in = 0;
+req4_cmd_in = 3;
+req4_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
+
+#200
+rd_data4_out = out_data4;
+rd_resp4_out = out_resp4;
+if(rd_resp4_out != 2 || rd_resp4_out != 0) begin
+  $display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp4_out, rd_data4_out);
+  end
+
 
 // TEST 2: Invalid command 4
 $display("Testing for invalid command 4 port 1\n",);
