@@ -186,7 +186,7 @@
   req1_cmd_in = 0;
   req1_data_in = a;
 
-  #10
+  #100
 
   rd_data1_out = out_data1;
 
@@ -222,7 +222,7 @@ end
   req2_cmd_in = 0;
   req2_data_in = a;
 
-  #10
+  #100
 
   rd_data2_out = out_data2;
 
@@ -258,7 +258,7 @@ end
   req3_cmd_in = 0;
   req3_data_in = a;
 
-  #10
+  #100
 
   rd_data3_out = out_data3;
 
@@ -294,7 +294,7 @@ end
   req4_cmd_in = 0;
   req4_data_in = a;
 
-  #10
+  #100
 
   rd_data4_out = out_data4;
 
