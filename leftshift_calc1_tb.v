@@ -201,7 +201,7 @@
   a=a+1;
 end
 
-//Test 5 left shift by increasing amount
+//Test 6 left shift by increasing amount
   $display("Testing left shift by increasing amount port 2");
 
   a = 1;
@@ -237,7 +237,7 @@ end
   a=a+1;
 end
 
-//Test 5 left shift by increasing amount
+//Test 7 left shift by increasing amount
   $display("Testing left shift by increasing amount port 3");
 
   a = 1;
@@ -273,7 +273,7 @@ end
   a=a+1;
 end
 
-//Test 5 left shift by increasing amount
+//Test 8 left shift by increasing amount
   $display("Testing left shift by increasing amount port 4");
 
   a = 1;

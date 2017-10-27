@@ -85,7 +85,7 @@ if(rd_resp4_out != 2 || rd_resp4_out != 0) begin
   end
 
 
-// TEST 2: Invalid command 4
+// TEST 5: Invalid command 4
 $display("Testing for invalid command 4 port 1\n",);
 
 #400
@@ -104,7 +104,7 @@ rd_data1_out = out_data1;
 rd_resp1_out = out_resp1;
 $display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);
 
-//TEST 3: 0 no command with random numbers
+//TEST 6: 0 no command with random numbers
 
 $display("Testing output is 0 on all channels with 0 command.\n");
 
