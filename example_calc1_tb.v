@@ -461,7 +461,7 @@ module example_calc1_tb;
 
         a=a+1;
         end
-        `include "addition_calc1_tb.v";
+        `include "addition_calc1_tb.v"
     //addition_calc1_tb port1(.cmd_in(req1_cmd_in), .data_in(req1_data_in), .data_out(out_data1),.clk(c_clk));
 
 	#2000 $stop;
