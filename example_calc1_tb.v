@@ -2,29 +2,31 @@
 
 module example_calc1_tb;
 
-   wire [0:31]   out_data1, out_data2, out_data3, out_data4;
-   wire [0:1]    out_resp1, out_resp2, out_resp3, out_resp4;
-
-   reg 	         c_clk;
-   reg [0:3] 	 req1_cmd_in, req2_cmd_in, req3_cmd_in, req4_cmd_in;
-   reg [0:31]    req1_data_in, req2_data_in, req3_data_in, req4_data_in;
-   reg [1:7] 	 reset;
-
-   calc1 DUV(out_data1, out_data2, out_data3, out_data4, out_resp1, out_resp2, out_resp3, out_resp4, c_clk, req1_cmd_in, req1_data_in, req2_cmd_in, req2_data_in, req3_cmd_in, req3_data_in, req4_cmd_in, req4_data_in, reset);
-
-	integer x;
-	integer y;
-  integer z;
-  integer a;
-
-	integer rd_data1_out;
-	integer rd_resp1_out;
-  integer rd_data2_out;
-	integer rd_resp2_out;
-  integer rd_data3_out;
-	integer rd_resp3_out;
-  integer rd_data4_out;
-	integer rd_resp4_out;
+`include "declerations_calc1_tb.v"
+ 
+  //  wire [0:31]   out_data1, out_data2, out_data3, out_data4;
+  //  wire [0:1]    out_resp1, out_resp2, out_resp3, out_resp4;
+  //
+  //  reg 	         c_clk;
+  //  reg [0:3] 	 req1_cmd_in, req2_cmd_in, req3_cmd_in, req4_cmd_in;
+  //  reg [0:31]    req1_data_in, req2_data_in, req3_data_in, req4_data_in;
+  //  reg [1:7] 	 reset;
+  //
+  //  calc1 DUV(out_data1, out_data2, out_data3, out_data4, out_resp1, out_resp2, out_resp3, out_resp4, c_clk, req1_cmd_in, req1_data_in, req2_cmd_in, req2_data_in, req3_cmd_in, req3_data_in, req4_cmd_in, req4_data_in, reset);
+  //
+	// integer x;
+	// integer y;
+  // integer z;
+  // integer a;
+  //
+	// integer rd_data1_out;
+	// integer rd_resp1_out;
+  // integer rd_data2_out;
+	// integer rd_resp2_out;
+  // integer rd_data3_out;
+	// integer rd_resp3_out;
+  // integer rd_data4_out;
+	// integer rd_resp4_out;
 
   //addition_calc1_tb port1(.cmd_in(req1_cmd_in), .data_in(req1_data_in), .data_out(out_data1),.clk(c_clk));
 
@@ -215,46 +217,6 @@ module example_calc1_tb;
 	rd_resp1_out = out_resp1;
 	$display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);``
 
-    // TEST 10 Right Shift for each bit on port 1.
-
-    	#400
-      rd_data1_out = 0;
-    	$display("Testing right shift on each bit");
-
-    	z = 32'b1000_0000_0000_0000_0000_0000_0000_0000;
-
-    	repeat(30) begin
-
-    			#200
-
-    			req1_cmd_in = 6;
-    			req1_data_in = z;
-    			req2_cmd_in = 0;
-    			req2_data_in = 0;
-    			req3_cmd_in = 0;
-    			req3_data_in = 0;
-    			req4_cmd_in = 0;
-    			req4_data_in = 0;
-
-    			#200
-
-    			req1_cmd_in = 0;
-    			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
-
-    			#200
-
-    			rd_data2_out = out_data2;
-
-    			if(rd_data1_out != (z>>1)) begin
-    				$display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", rd_data2_out, (z>>1));
-    				end
-
-    			if(rd_data1_out == (z>>1)) begin
-    				$display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", rd_data2_out, (z>>1));
-    				end
-
-    			z=(z>>1);
-    		end
         `include "leftshift_calc1_tb.v"
         `include "addition_calc1_tb.v"
     //addition_calc1_tb port1(.cmd_in(req1_cmd_in), .data_in(req1_data_in), .data_out(out_data1),.clk(c_clk));
