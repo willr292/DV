@@ -2,7 +2,7 @@
 
   x = 1;
 
-  repeat(31) begin : add
+  repeat(31) begin
 
       #200
 
@@ -33,4 +33,4 @@
         end
 
       x=(x<<1);
-    end : add
+    end
