@@ -214,7 +214,7 @@ module example_calc1_tb;
 	req4_cmd_in = 0;
 	req4_data_in = 0;
 
-	#10
+	#200
 	rd_data1_out = out_data1;
 	rd_resp1_out = out_resp1;
 	$display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);
@@ -233,7 +233,7 @@ module example_calc1_tb;
 	req4_cmd_in = 0;
 	req4_data_in = 0;
 
-	#10
+	#200
 	rd_data1_out = out_data1;
 	rd_resp1_out = out_resp1;
 	$display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp1_out, rd_data1_out);
@@ -264,7 +264,7 @@ module example_calc1_tb;
   req4_cmd_in = 0;
   req4_data_in = $random;
 
-  #10
+  #200
 
   rd_data1_out = out_data1;
 	rd_resp1_out = out_resp1;
@@ -302,7 +302,7 @@ module example_calc1_tb;
 	req1_cmd_in = 0;
 	req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_1111;
 
-	#10
+	#200
 
 	rd_data1_out = out_data1;
 	rd_resp1_out = out_resp1;
@@ -334,7 +334,7 @@ module example_calc1_tb;
 			req1_cmd_in = 0;
 			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 
-			#10
+			#200
 
 			rd_data1_out = out_data1;
 
@@ -349,7 +349,7 @@ module example_calc1_tb;
 			x=(x<<1);
 		end : add
 
-// TEST 10 Left Shift for each bit.
+// TEST 10 Left Shift for each bit on port 1.
 
 	#400
 
@@ -390,7 +390,7 @@ module example_calc1_tb;
 			y=(y<<1);
 		end : leftshift
 
-    // TEST 10 Right Shift for each bit.
+    // TEST 10 Right Shift for each bit on port 1.
 
     	#400
       rd_data1_out = 0;
@@ -416,7 +416,7 @@ module example_calc1_tb;
     			req1_cmd_in = 0;
     			req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 
-    			#10
+    			#200
 
     			rd_data2_out = out_data2;
 
@@ -461,7 +461,7 @@ module example_calc1_tb;
 
         a=a+1;
         end
-
+        `include "addition_calc1_tb.v";
     //addition_calc1_tb port1(.cmd_in(req1_cmd_in), .data_in(req1_data_in), .data_out(out_data1),.clk(c_clk));
 
 	#2000 $stop;
