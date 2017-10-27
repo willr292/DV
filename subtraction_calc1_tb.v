@@ -18,7 +18,7 @@ req4_data_in = 0;
 req1_cmd_in = 0;
 req1_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_1111;
 
-#10
+#200
 
 rd_data1_out = out_data1;
 rd_resp1_out = out_resp1;
@@ -42,7 +42,7 @@ req4_data_in = 0;
 req2_cmd_in = 0;
 req2_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_1111;
 
-#10
+#200
 
 rd_data2_out = out_data2;
 rd_resp2_out = out_resp2;
@@ -66,7 +66,7 @@ req4_data_in = 0;
 req3_cmd_in = 0;
 req3_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_1111;
 
-#10
+#200
 
 rd_data3_out = out_data3;
 rd_resp3_out = out_resp3;
@@ -90,7 +90,7 @@ req4_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_0001;
 req4_cmd_in = 0;
 req4_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_1111;
 
-#10
+#200
 
 rd_data4_out = out_data4;
 rd_resp4_out = out_resp4;

@@ -26,11 +26,11 @@ module example_calc1_tb;
   #800
   reset[1] = 0;
 
-  `include "invalidcommand_calc1_tb.v"
+//  `include "invalidcommand_calc1_tb.v"
   `include "subtraction_calc1_tb.v"
-  `include "rightshift_calc1_tb.v"
-  `include "leftshift_calc1_tb.v"
-  `include "addition_calc1_tb.v"
+//  `include "rightshift_calc1_tb.v"
+//  `include "leftshift_calc1_tb.v"
+//  `include "addition_calc1_tb.v"
 
   #2000 $stop;
 
