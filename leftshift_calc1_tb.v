@@ -165,7 +165,7 @@
     end
 
 
-//Test 2 left shift by increasing amount
+//Test 5 left shift by increasing amount
   $display("Testing left shift by increasing amount port 1");
 
   a = 1;
@@ -193,10 +193,118 @@
   if(rd_data1_out != (1<<a)) begin
     $display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", $unsigned(rd_data1_out), (1<<a));
     end
-
+		/*
   if(rd_data1_out == (1<<a)) begin
     $display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", $unsigned(rd_data1_out), (1<<a));
     end
+		*/
+  a=a+1;
+end
 
+//Test 5 left shift by increasing amount
+  $display("Testing left shift by increasing amount port 2");
+
+  a = 1;
+
+  repeat(31) begin
+
+  req1_cmd_in = 0;
+  req1_data_in = 0;
+  req2_cmd_in = 5;
+  req2_data_in = 1;
+  req3_cmd_in = 0;
+  req3_data_in = 0;
+  req4_cmd_in = 0;
+  req4_data_in = 0;
+
+  #200
+
+  req2_cmd_in = 0;
+  req2_data_in = a;
+
+  #10
+
+  rd_data2_out = out_data2;
+
+  if(rd_data2_out != (1<<a)) begin
+    $display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", $unsigned(rd_data2_out), (1<<a));
+    end
+		/*
+  if(rd_data1_out == (1<<a)) begin
+    $display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", $unsigned(rd_data1_out), (1<<a));
+    end
+		*/
+  a=a+1;
+end
+
+//Test 5 left shift by increasing amount
+  $display("Testing left shift by increasing amount port 3");
+
+  a = 1;
+
+  repeat(31) begin
+
+  req1_cmd_in = 0;
+  req1_data_in = 0;
+  req2_cmd_in = 0;
+  req2_data_in = 0;
+  req3_cmd_in = 5;
+  req3_data_in = 1;
+  req4_cmd_in = 0;
+  req4_data_in = 0;
+
+  #200
+
+  req3_cmd_in = 0;
+  req3_data_in = a;
+
+  #10
+
+  rd_data3_out = out_data3;
+
+  if(rd_data3_out != (1<<a)) begin
+    $display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", $unsigned(rd_data3_out), (1<<a));
+    end
+		/*
+  if(rd_data1_out == (1<<a)) begin
+    $display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", $unsigned(rd_data1_out), (1<<a));
+    end
+		*/
+  a=a+1;
+end
+
+//Test 5 left shift by increasing amount
+  $display("Testing left shift by increasing amount port 4");
+
+  a = 1;
+
+  repeat(31) begin
+
+  req1_cmd_in = 0;
+  req1_data_in = 0;
+  req2_cmd_in = 0;
+  req2_data_in = 0;
+  req3_cmd_in = 0;
+  req3_data_in = 0;
+  req4_cmd_in = 5;
+  req4_data_in = 1;
+
+  #200
+
+  req4_cmd_in = 0;
+  req4_data_in = a;
+
+  #10
+
+  rd_data4_out = out_data4;
+
+  if(rd_data4_out != (1<<a)) begin
+    $display("ANSWER WAS NOT CORRECT, out data was %d when answer should be %d\n", $unsigned(rd_data4_out), (1<<a));
+    end
+		/*
+  if(rd_data1_out == (1<<a)) begin
+    $display("ANSWER WAS CORRECT, out data was %d and answer is %d\n", $unsigned(rd_data1_out), (1<<a));
+    end
+		*/
   a=a+1;
 end
