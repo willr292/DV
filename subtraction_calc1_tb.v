@@ -123,8 +123,110 @@ repeat(31) begin
 
     rd_data1_out = out_data1;
 
-    if(rd_data1_out != x) begin
+    if(rd_data1_out != 0) begin
       $display("ANSWER WAS NOT CORRECT, out data was %d when answer should be 0\n", rd_data1_out);
+      end
+
+    x=(x<<1);
+  end
+
+//TEST 6: Subtraction for each bit port 2.
+$display("Testing subtraction on each bit port 2.");
+
+x = 1;
+
+repeat(31) begin
+
+    #200
+
+    req1_cmd_in = 0;
+    req1_data_in = 0;
+    req2_cmd_in = 2;
+    req2_data_in = x;
+    req3_cmd_in = 0;
+    req3_data_in = 0;
+    req4_cmd_in = 0;
+    req4_data_in = 0;
+
+    #200
+
+    req2_cmd_in = 0;
+    req2_data_in = x;
+
+    #200
+
+    rd_data2_out = out_data2;
+
+    if(rd_data2_out != 0) begin
+      $display("ANSWER WAS NOT CORRECT, out data was %d when answer should be 0\n", rd_data2_out);
+      end
+
+    x=(x<<1);
+  end
+
+//TEST 7: Subtraction for each bit port 3.
+$display("Testing subtraction on each bit port 3.");
+
+x = 1;
+
+repeat(31) begin
+
+    #200
+
+    req1_cmd_in = 0;
+    req1_data_in = 0;
+    req2_cmd_in = 0;
+    req2_data_in = 0;
+    req3_cmd_in = 2;
+    req3_data_in = x;
+    req4_cmd_in = 0;
+    req4_data_in = 0;
+
+    #200
+
+    req3_cmd_in = 0;
+    req3_data_in = x;
+
+    #200
+
+    rd_data3_out = out_data3;
+
+    if(rd_data3_out != 0) begin
+      $display("ANSWER WAS NOT CORRECT, out data was %d when answer should be 0\n", rd_data3_out);
+      end
+
+    x=(x<<1);
+  end
+
+//TEST 8: Subtraction for each bit port 4.
+$display("Testing subtraction on each bit port 4.");
+
+x = 1;
+
+repeat(31) begin
+
+    #200
+
+    req1_cmd_in = 0;
+    req1_data_in = 0;
+    req2_cmd_in = 0;
+    req2_data_in = 0;
+    req3_cmd_in = 0;
+    req3_data_in = 0;
+    req4_cmd_in = 2;
+    req4_data_in = x;
+
+    #200
+
+    req4_cmd_in = 0;
+    req4_data_in = x;
+
+    #200
+
+    rd_data4_out = out_data4;
+
+    if(rd_data4_out != 0) begin
+      $display("ANSWER WAS NOT CORRECT, out data was %d when answer should be 0\n", rd_data4_out);
       end
 
     x=(x<<1);
