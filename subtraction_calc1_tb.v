@@ -95,3 +95,37 @@ req4_data_in = 32'b0000_0000_0000_0000_0000_0000_0000_1111;
 rd_data4_out = out_data4;
 rd_resp4_out = out_resp4;
 $display("Output response should be 2 and is: %d, and answer should be 0 and is %d\n", rd_resp4_out, rd_data4_out);
+
+//TEST 5: Subtraction for each bit port 1.
+$display("Testing subtraction on each bit port 1.");
+
+x = 1;
+
+repeat(31) begin
+
+    #200
+
+    req1_cmd_in = 2;
+    req1_data_in = x;
+    req2_cmd_in = 0;
+    req2_data_in = 0;
+    req3_cmd_in = 0;
+    req3_data_in = 0;
+    req4_cmd_in = 0;
+    req4_data_in = 0;
+
+    #200
+
+    req1_cmd_in = 0;
+    req1_data_in = x;
+
+    #200
+
+    rd_data1_out = out_data1;
+
+    if(rd_data1_out != x) begin
+      $display("ANSWER WAS NOT CORRECT, out data was %d when answer should be 0\n", rd_data1_out);
+      end
+
+    x=(x<<1);
+  end
