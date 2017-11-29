@@ -56,7 +56,7 @@ extend instruction_s {
 
        if(ins.din1 > ins.din2) {
           check that ins.resp == 02;
-          check that ins.dout == 0.32b
+          check that ins.dout == 0;
        } else {
           check that ins.resp == 01;
           check that ins.dout == (ins.din1 - ins.din2) else
