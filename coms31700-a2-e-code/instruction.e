@@ -26,7 +26,7 @@ struct instruction_s {
 extend instruction_s {
 
    // example check for correct addition
-   when ADD'cmd_in instruction_s { 
+   when ADD'cmd_in instruction_s {
 
      check_response(ins : instruction_s) is only {
 
@@ -35,18 +35,36 @@ extend instruction_s {
        dut_error(appendf("[R==>Port 1 invalid output.<==R]\n \
                           Instruction %s %d %d,\n \
                           expected %032.32b \t %d,\n \
-                          received %032.32b \t %d.\n", 
-                          ins.cmd_in, ins.din1, ins.din2, 
+                          received %032.32b \t %d.\n",
+                          ins.cmd_in, ins.din1, ins.din2,
                           (ins.din1 + ins.din2),
-                          (ins.din1 + ins.din2), 
+                          (ins.din1 + ins.din2),
                           ins.dout,ins.dout));
 
      }; // check_response
 
-   }; // when 
+   }; // when
 
 }; // extend instruction_s
 
+extend instruction_s {
+
+   // check for correct subtraction
+   when SUB'cmd_in instruction_s {
+
+     check_response(ins : instruction_s) is only {
+
+       check that ins.resp == 01;
+       check that ins.dout == (ins.din1 - ins.din2) else
+       dut_error(appendf("[R==>Port 1 invalid output.<==R]\n \
+                          Instruction %s %d %d,\n \
+                          expected %032.32b \t %d,\n \
+                          received %032.32b \t %d.\n",
+                          ins.cmd_in, ins.din1, ins.din2,
+                          (ins.din1 - ins.din2),
+                          (ins.din1 - ins.din2), 
+                          ins.dout,ins.dout));
+
+     };
 
 '>
-

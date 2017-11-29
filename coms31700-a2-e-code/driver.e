@@ -75,7 +75,6 @@ unit driver_u {
 
    event clk is fall(clk_p$)@sim;
    event resp is change(out_resp1_p$)@sim;
-   event resp2 is change(out_resp2_p$)@sim;
 
    drive_reset() @clk is {
       var i : int;
@@ -103,15 +102,11 @@ unit driver_u {
       // drive data into calculator port 1
       req1_cmd_in_p$  = pack(NULL, ins.cmd_in);
       req1_data_in_p$ = pack(NULL, ins.din1);
-      req2_cmd_in_p$  = pack(NULL, ins.cmd_in);
-      req2_data_in_p$ = pack(NULL, ins.din1);
 
       wait cycle;
 
       req1_cmd_in_p$  = 0000;
       req1_data_in_p$ = pack(NULL, ins.din2);
-      req2_cmd_in_p$  = 0000;
-      req2_data_in_p$ = pack(NULL, ins.din2);
 
    }; // drive_instruction
 
@@ -122,8 +117,6 @@ unit driver_u {
 
       ins.resp = out_resp1_p$;
       ins.dout = out_data1_p$;
-      ins.resp2 = out_resp2_p$;
-      ins.dout = out_data2_p$;
 
    }; // collect_response
 
