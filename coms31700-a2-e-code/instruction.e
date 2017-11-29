@@ -55,7 +55,7 @@ extend instruction_s {
      check_response(ins : instruction_s) is only {
 
        if(ins.din1 < ins.din2) {
-          check that ins.resp == 02;
+          check that ins.resp == 10;
           check that ins.dout == 0 else
           dut_error(appendf("[R==>Port 1 invalid output.<==R]\n \
           Instruction %s %d %d,\n \
@@ -64,7 +64,7 @@ extend instruction_s {
           ins.cmd_in, ins.din1, ins.din2,
           0,
           0,
-          ins.dout.as_a(uint),ins.dout.as_a(uint)));
+          ins.dout,ins.dout);
 
        } else {
           check that ins.resp == 01;
