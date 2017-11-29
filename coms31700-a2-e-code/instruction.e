@@ -64,7 +64,7 @@ extend instruction_s {
           ins.cmd_in, ins.din1, ins.din2,
           0,
           0,
-          ins.dout,ins.dout);
+          ins.dout,ins.dout));
 
        } else {
           check that ins.resp == 01;
