@@ -122,7 +122,7 @@ unit driver_u {
 
       ins.resp = out_resp1_p$;
       ins.dout = out_data1_p$;
-      ins.resp2 = out_resp2_p$s;
+      ins.resp2 = out_resp2_p$;
       ins.dout = out_data2_p$;
 
    }; // collect_response
