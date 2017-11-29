@@ -1,12 +1,12 @@
 
    Sample driver.e file
    --------------------
-   This file provides the basic structure for the calc1 testbench 
-   driver. 
+   This file provides the basic structure for the calc1 testbench
+   driver.
 
    The driver interacts directly with the DUV by driving test data into
    the DUV and collecting the response from the DUV. It also invokes the
-   instruction specific response checker. 
+   instruction specific response checker.
 
 <'
 
@@ -18,6 +18,7 @@ unit driver_u {
    reset_p : out simple_port of uint(bits:7) is instance; // driven by sn
    keep reset_p.hdl_path() == "~/calc1_sn/reset";
 
+    //Port 1
    req1_cmd_in_p : out simple_port of uint(bits:4) is instance; // driven by sn
    keep req1_cmd_in_p.hdl_path() == "~/calc1_sn/req1_cmd_in";
 
@@ -29,7 +30,45 @@ unit driver_u {
 
    out_data1_p : in simple_port of uint(bits:32) is instance; // read by sn
    keep out_data1_p.hdl_path() == "~/calc1_sn/out_data1";
-  
+
+   //Port 2
+   req2_cmd_in_p : out simple_port of uint(bits:4) is instance; // driven by sn
+   keep req2_cmd_in_p.hdl_path() == "~/calc1_sn/req2_cmd_in";
+
+   req2_data_in_p : out simple_port of uint(bits:32) is instance; // driven by sn
+   keep req2_data_in_p.hdl_path() == "~/calc1_sn/req2_data_in";
+
+   out_resp2_p : in simple_port of uint(bits:2) is instance; // read by sn
+   keep out_resp2_p.hdl_path() == "~/calc1_sn/out_resp2";
+
+   out_data2_p : in simple_port of uint(bits:32) is instance; // read by sn
+   keep out_data2_p.hdl_path() == "~/calc1_sn/out_data2";
+
+   //Port 3
+   req3_cmd_in_p : out simple_port of uint(bits:4) is instance; // driven by sn
+   keep req3_cmd_in_p.hdl_path() == "~/calc1_sn/req3_cmd_in";
+
+   req3_data_in_p : out simple_port of uint(bits:32) is instance; // driven by sn
+   keep req3_data_in_p.hdl_path() == "~/calc1_sn/req3_data_in";
+
+   out_resp3_p : in simple_port of uint(bits:2) is instance; // read by sn
+   keep out_resp3_p.hdl_path() == "~/calc1_sn/out_resp3";
+
+   out_data3_p : in simple_port of uint(bits:32) is instance; // read by sn
+   keep out_data3_p.hdl_path() == "~/calc1_sn/out_data3";
+
+   //Port 4
+   req4_cmd_in_p : out simple_port of uint(bits:4) is instance; // driven by sn
+   keep req4_cmd_in_p.hdl_path() == "~/calc1_sn/req4_cmd_in";
+
+   req4_data_in_p : out simple_port of uint(bits:32) is instance; // driven by sn
+   keep req4_data_in_p.hdl_path() == "~/calc1_sn/req4_data_in";
+
+   out_resp4_p : in simple_port of uint(bits:2) is instance; // read by sn
+   keep out_resp4_p.hdl_path() == "~/calc1_sn/out_resp4";
+
+   out_data4_p : in simple_port of uint(bits:32) is instance; // read by sn
+   keep out_data4_p.hdl_path() == "~/calc1_sn/out_data4";
 
    instructions_to_drive : list of instruction_s;
 
@@ -64,19 +103,19 @@ unit driver_u {
       // drive data into calculator port 1
       req1_cmd_in_p$  = pack(NULL, ins.cmd_in);
       req1_data_in_p$ = pack(NULL, ins.din1);
-         
+
       wait cycle;
 
-      req1_cmd_in_p$  = 0000;  
+      req1_cmd_in_p$  = 0000;
       req1_data_in_p$ = pack(NULL, ins.din2);
-         
+
    }; // drive_instruction
 
 
    collect_response(ins : instruction_s) @clk is {
 
       wait @resp; -- wait for the response
-         
+
       ins.resp = out_resp1_p$;
       ins.dout = out_data1_p$;
 
@@ -88,7 +127,7 @@ unit driver_u {
       drive_reset();
 
       for each (ins) in instructions_to_drive do {
-       
+
          drive_instruction(ins, index);
          collect_response(ins);
          ins.check_response(ins);
@@ -110,4 +149,3 @@ unit driver_u {
 
 
 '>
-
