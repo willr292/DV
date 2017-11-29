@@ -8,7 +8,7 @@
 
 extend instruction_s {
 //   keep cmd_in in [ADD,SUB,SHL,SHR];
-   keep cmd_in == [ADD, SUB];
+   keep cmd_in in [ADD,SUB];
    keep din1 < 10;
    keep din2 < 1000;
 }; // extend instruction_s
