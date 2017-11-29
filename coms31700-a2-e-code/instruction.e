@@ -62,9 +62,13 @@ extend instruction_s {
                           received %032.32b \t %d.\n",
                           ins.cmd_in, ins.din1, ins.din2,
                           (ins.din1 - ins.din2),
-                          (ins.din1 - ins.din2), 
+                          (ins.din1 - ins.din2),
                           ins.dout,ins.dout));
 
      };
+
+     }; // when
+
+  }; // extend instruction_s
 
 '>
