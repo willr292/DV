@@ -74,7 +74,7 @@ unit driver_u {
 
 
    event clk is fall(clk_p$)@sim;
-   event resp is change(out_resp1_p$ or out_resp2_p$)@sim;
+   event resp is change(out_resp1_p$, out_resp2_p$)@sim;
     //event resp is change in [out_resp1_p$, out_resp2_p$]@sim;
 
    drive_reset() @clk is {
