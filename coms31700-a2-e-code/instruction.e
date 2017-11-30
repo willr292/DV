@@ -109,6 +109,7 @@ extend instruction_s {
 
   }; // extend instruction_s
 
+
 extend instruction_s {
 
    // check for correct right shift

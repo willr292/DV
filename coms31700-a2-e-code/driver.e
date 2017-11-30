@@ -110,6 +110,25 @@ unit driver_u {
 
    }; // drive_instruction
 
+   drive_instruction2(ins : instruction_s, i : int) @clk is {
+
+      // display generated command and data
+      outf("Command %s = %s\n", i, ins.cmd_in);
+      out("Op1     = ", ins.din1);
+      out("Op2     = ", ins.din2);
+      out();
+
+      // drive data into calculator port 1
+      req2_cmd_in_p$  = pack(NULL, ins.cmd_in);
+      req2_data_in_p$ = pack(NULL, ins.din1);
+
+      wait cycle;
+
+      req2_cmd_in_p$  = 0000;
+      req2_data_in_p$ = pack(NULL, ins.din2);
+
+   }; // drive_instruction2
+
 
    collect_response(ins : instruction_s) @clk is {
 
@@ -120,6 +139,15 @@ unit driver_u {
 
    }; // collect_response
 
+   collect_response2(ins : instruction_s) @clk is {
+
+      wait @resp; -- wait for the response
+
+      ins.resp = out_resp2_p$;
+      ins.dout = out_data2_p$;
+
+   }; // collect_response2
+
 
    drive() @clk is {
 
@@ -129,6 +157,11 @@ unit driver_u {
 
          drive_instruction(ins, index);
          collect_response(ins);
+         ins.check_response(ins);
+         wait cycle;
+
+         drive_instruction2(ins, index);
+         collect_response2(ins);
          ins.check_response(ins);
          wait cycle;
 
