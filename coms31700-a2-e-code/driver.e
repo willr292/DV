@@ -76,8 +76,6 @@ unit driver_u {
    event clk is fall(clk_p$)@sim;
    event resp is (change(out_resp1_p$)@sim or change(out_resp2_p$)@sim);
 
-  //event resp is change in [out_resp1_p$, out_resp2_p$]@sim;
-
    drive_reset() @clk is {
       var i : int;
 
@@ -160,7 +158,8 @@ unit driver_u {
          drive_instruction(ins, index);
          collect_response(ins);
          ins.check_response(ins);
-
+         wait cycle;
+         
          drive_instruction2(ins, index);
          collect_response2(ins);
          ins.check_response(ins);
@@ -168,7 +167,7 @@ unit driver_u {
 
       }; // for each instruction
 
-      wait [5] * cycle;
+      wait [10] * cycle;
       stop_run();
 
    }; // drive
