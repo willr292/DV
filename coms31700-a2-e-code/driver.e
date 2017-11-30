@@ -158,7 +158,7 @@ unit driver_u {
          drive_instruction(ins, index);
          collect_response(ins);
          ins.check_response(ins);
-         wait cycle;
+         //wait cycle;
 
          drive_instruction2(ins, index);
          collect_response2(ins);
