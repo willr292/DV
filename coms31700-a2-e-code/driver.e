@@ -158,7 +158,6 @@ unit driver_u {
          drive_instruction(ins, index);
          collect_response(ins);
          ins.check_response(ins);
-         //wait cycle;
 
          drive_instruction2(ins, index);
          collect_response2(ins);
@@ -167,7 +166,7 @@ unit driver_u {
 
       }; // for each instruction
 
-      wait [10] * cycle;
+      wait [5] * cycle;
       stop_run();
 
    }; // drive
