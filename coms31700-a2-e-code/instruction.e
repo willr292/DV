@@ -52,6 +52,7 @@ extend instruction_s {
                               (ins.din1 + ins.din2),
                               (ins.din1 + ins.din2),
                               ins.dout,ins.dout));
+          }
 
      }; // check_response
 
