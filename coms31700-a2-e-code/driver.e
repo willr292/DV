@@ -74,7 +74,7 @@ unit driver_u {
 
 
    event clk is fall(clk_p$)@sim;
-   event resp is (change(out_resp1_p$)@sim or change(out_resp2_p$)@sim);
+   event resp is (change(out_resp1_p$)@sim or change(out_resp2_p$)@sim or change(out_resp3_p$)@sim or change(out_resp4_p$)@sim);
 
    drive_reset() @clk is {
       var i : int;
@@ -94,7 +94,7 @@ unit driver_u {
    drive_instruction(ins : instruction_s, i : int) @clk is {
 
       // display generated command and data
-      outf("port 1");
+      outf("port 1\n");
       outf("Command %s = %s\n", i, ins.cmd_in);
       out("Op1     = ", ins.din1);
       out("Op2     = ", ins.din2);
@@ -114,7 +114,7 @@ unit driver_u {
    drive_instruction2(ins : instruction_s, i : int) @clk is {
 
       // display generated command and data
-      outf("port 2");
+      outf("port 2/n");
       outf("Command %s = %s\n", i, ins.cmd_in);
       out("Op1     = ", ins.din1);
       out("Op2     = ", ins.din2);
@@ -134,7 +134,7 @@ unit driver_u {
    drive_instruction3(ins : instruction_s, i : int) @clk is {
 
       // display generated command and data
-      outf("port 3");
+      outf("port 3/n");
       outf("Command %s = %s\n", i, ins.cmd_in);
       out("Op1     = ", ins.din1);
       out("Op2     = ", ins.din2);
@@ -154,7 +154,7 @@ unit driver_u {
    drive_instruction4(ins : instruction_s, i : int) @clk is {
 
       // display generated command and data
-      outf("port 4");
+      outf("port 4/n");
       outf("Command %s = %s\n", i, ins.cmd_in);
       out("Op1     = ", ins.din1);
       out("Op2     = ", ins.din2);
