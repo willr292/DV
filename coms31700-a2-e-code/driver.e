@@ -94,7 +94,7 @@ unit driver_u {
    drive_instruction(ins : instruction_s, i : int) @clk is {
 
       // display generated command and data
-      outf("port 1\n");
+      outf("port 1 \n");
       outf("Command %s = %s\n", i, ins.cmd_in);
       out("Op1     = ", ins.din1);
       out("Op2     = ", ins.din2);

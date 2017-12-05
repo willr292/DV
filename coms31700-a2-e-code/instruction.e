@@ -58,8 +58,8 @@ extend instruction_s {
           check that ins.resp == 02 else
           dut_error(appendf("[R==>Port 1 invalid response, should be 2 for underflow error<==R]\n \
           Instruction %s %d %d,\n \
-          expected %032.32b \t %d,\n \
-          received %032.32b \t %d.\n",
+          expected %02.2b \t %d,\n \
+          received %02.2b \t %d.\n",
           ins.cmd_in, ins.din1, ins.din2,
           2,
           2,
