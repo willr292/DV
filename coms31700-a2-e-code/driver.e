@@ -94,6 +94,7 @@ unit driver_u {
    drive_instruction(ins : instruction_s, i : int) @clk is {
 
       // display generated command and data
+      outf("port 1");
       outf("Command %s = %s\n", i, ins.cmd_in);
       out("Op1     = ", ins.din1);
       out("Op2     = ", ins.din2);
@@ -113,6 +114,7 @@ unit driver_u {
    drive_instruction2(ins : instruction_s, i : int) @clk is {
 
       // display generated command and data
+      outf("port 2");
       outf("Command %s = %s\n", i, ins.cmd_in);
       out("Op1     = ", ins.din1);
       out("Op2     = ", ins.din2);
@@ -129,6 +131,45 @@ unit driver_u {
 
    }; // drive_instruction2
 
+   drive_instruction3(ins : instruction_s, i : int) @clk is {
+
+      // display generated command and data
+      outf("port 3");
+      outf("Command %s = %s\n", i, ins.cmd_in);
+      out("Op1     = ", ins.din1);
+      out("Op2     = ", ins.din2);
+      out();
+
+      // drive data into calculator port 1
+      req3_cmd_in_p$  = pack(NULL, ins.cmd_in);
+      req3_data_in_p$ = pack(NULL, ins.din1);
+
+      wait cycle;
+
+      req3_cmd_in_p$  = 0000;
+      req3_data_in_p$ = pack(NULL, ins.din2);
+
+   }; // drive_instruction3
+
+   drive_instruction4(ins : instruction_s, i : int) @clk is {
+
+      // display generated command and data
+      outf("port 4");
+      outf("Command %s = %s\n", i, ins.cmd_in);
+      out("Op1     = ", ins.din1);
+      out("Op2     = ", ins.din2);
+      out();
+
+      // drive data into calculator port 1
+      req4_cmd_in_p$  = pack(NULL, ins.cmd_in);
+      req4_data_in_p$ = pack(NULL, ins.din1);
+
+      wait cycle;
+
+      req4_cmd_in_p$  = 0000;
+      req4_data_in_p$ = pack(NULL, ins.din2);
+
+   }; // drive_instruction4
 
    collect_response(ins : instruction_s) @clk is {
 
@@ -148,6 +189,24 @@ unit driver_u {
 
    }; // collect_response2
 
+   collect_response3(ins : instruction_s) @clk is {
+
+      wait @resp; -- wait for the response
+
+      ins.resp = out_resp3_p$;
+      ins.dout = out_data3_p$;
+
+   }; // collect_response3
+
+   collect_response4(ins : instruction_s) @clk is {
+
+      wait @resp; -- wait for the response
+
+      ins.resp = out_resp4_p$;
+      ins.dout = out_data4_p$;
+
+   }; // collect_response4
+
 
    drive() @clk is {
 
@@ -159,9 +218,19 @@ unit driver_u {
          collect_response(ins);
          ins.check_response(ins);
          wait cycle;
-         
+
          drive_instruction2(ins, index);
          collect_response2(ins);
+         ins.check_response(ins);
+         wait cycle;
+
+         drive_instruction3(ins, index);
+         collect_response3(ins);
+         ins.check_response(ins);
+         wait cycle;
+
+         drive_instruction4(ins, index);
+         collect_response4(ins);
          ins.check_response(ins);
          wait cycle;
 
