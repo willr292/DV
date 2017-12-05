@@ -94,10 +94,10 @@ unit driver_u {
    drive_instruction(ins : instruction_s, i : int) @clk is {
 
       // display generated command and data
-      outf("port 1 \n");
       outf("Command %s = %s\n", i, ins.cmd_in);
       out("Op1     = ", ins.din1);
       out("Op2     = ", ins.din2);
+      out("port 1 \n");
       out();
 
       // drive data into calculator port 1
@@ -114,10 +114,10 @@ unit driver_u {
    drive_instruction2(ins : instruction_s, i : int) @clk is {
 
       // display generated command and data
-      outf("port 2/n");
       outf("Command %s = %s\n", i, ins.cmd_in);
       out("Op1     = ", ins.din1);
       out("Op2     = ", ins.din2);
+      out("port 2 \n");
       out();
 
       // drive data into calculator port 1
@@ -134,10 +134,10 @@ unit driver_u {
    drive_instruction3(ins : instruction_s, i : int) @clk is {
 
       // display generated command and data
-      outf("port 3/n");
       outf("Command %s = %s\n", i, ins.cmd_in);
       out("Op1     = ", ins.din1);
       out("Op2     = ", ins.din2);
+      out("port 3 \n");
       out();
 
       // drive data into calculator port 1
@@ -154,10 +154,10 @@ unit driver_u {
    drive_instruction4(ins : instruction_s, i : int) @clk is {
 
       // display generated command and data
-      outf("port 4/n");
       outf("Command %s = %s\n", i, ins.cmd_in);
       out("Op1     = ", ins.din1);
       out("Op2     = ", ins.din2);
+      out("port 4 \n");
       out();
 
       // drive data into calculator port 1

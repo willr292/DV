@@ -103,7 +103,7 @@ extend instruction_s {
 
        check that ins.resp == 01;
        check that ins.dout == (ins.din1 << ins.din2) else
-       dut_error(appendf("[R==>Port 1 invalid output.<==R]\n \
+       dut_error(appendf("[R==>Invalid output.<==R]\n \
                           Instruction %s %d %d,\n \
                           expected %032.32b \t %d,\n \
                           received %032.32b \t %d.\n",
