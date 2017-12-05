@@ -200,7 +200,8 @@ unit driver_u {
 
    collect_response4(ins : instruction_s) @clk is {
 
-      wait @resp; -- wait for the response
+      wait [1] * cycle;
+      //wait @resp; -- wait for the response
 
       ins.resp = out_resp4_p$;
       ins.dout = out_data4_p$;
