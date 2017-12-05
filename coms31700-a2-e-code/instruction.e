@@ -30,7 +30,7 @@ extend instruction_s {
 
      check_response(ins : instruction_s) is only {
 
-       if(ins.din1 + ins.din2 > 2,147,483,647) {
+       if(ins.din1 + ins.din2 > 2147483647) {
           check that ins.resp == 02 else
           dut_error(appendf("[R==>Invalid response, should be 2 for overflow error<==R]\n \
           Instruction %s %d %d,\n \
