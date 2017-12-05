@@ -173,7 +173,7 @@ unit driver_u {
 
    collect_response(ins : instruction_s) @clk is {
 
-      wait @resp or [5] * cycle;; -- wait for the response
+      wait @resp or [5] * cycle; -- wait for the response
 
       ins.resp = out_resp1_p$;
       ins.dout = out_data1_p$;
@@ -182,7 +182,7 @@ unit driver_u {
 
    collect_response2(ins : instruction_s) @clk is {
 
-      wait @resp; -- wait for the response
+      wait @resp or [5] * cycle; -- wait for the response
 
       ins.resp = out_resp2_p$;
       ins.dout = out_data2_p$;
@@ -191,7 +191,7 @@ unit driver_u {
 
    collect_response3(ins : instruction_s) @clk is {
 
-      wait @resp; -- wait for the response
+      wait @resp or [5] * cycle; -- wait for the response
 
       ins.resp = out_resp3_p$;
       ins.dout = out_data3_p$;
@@ -200,7 +200,7 @@ unit driver_u {
 
    collect_response4(ins : instruction_s) @clk is {
 
-      wait @resp; -- wait for the response
+      wait @resp or [5] * cycle; -- wait for the response
 
       ins.resp = out_resp4_p$;
       ins.dout = out_data4_p$;
