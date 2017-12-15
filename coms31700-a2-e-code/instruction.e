@@ -44,7 +44,7 @@ extend instruction_s {
 
            check that ins.resp == 01;
            check that ins.dout == (ins.din1 + ins.din2) else
-           dut_error(appendf("[R==>Port 1 invalid output.<==R]\n \
+           dut_error(appendf("[R==>Incorrect answer.<==R]\n \
                               Instruction %s %d %d,\n \
                               expected %032.32b \t %d,\n \
                               received %032.32b \t %d.\n",
@@ -69,7 +69,7 @@ extend instruction_s {
 
        if(ins.din1 < ins.din2) {
           check that ins.resp == 02 else
-          dut_error(appendf("[R==>Port 1 invalid response, should be 2 for underflow error<==R]\n \
+          dut_error(appendf("[R==>Invalid response, should be 2 for underflow error<==R]\n \
           Instruction %s %d %d,\n \
           expected %02.2b \t %d,\n \
           received %02.2b \t %d.\n",
@@ -79,7 +79,7 @@ extend instruction_s {
           ins.resp,ins.resp));
 
           check that ins.dout == 0 else
-          dut_error(appendf("[R==>Port 1 invalid output, should be 0 for an underflow.<==R]\n \
+          dut_error(appendf("[R==>Invalid output, should be 0 for an underflow.<==R]\n \
           Instruction %s %d %d,\n \
           expected %032.32b \t %d,\n \
           received %032.32b \t %d.\n",
@@ -91,7 +91,7 @@ extend instruction_s {
        } else {
           check that ins.resp == 01;
           check that ins.dout == (ins.din1 - ins.din2) else
-          dut_error(appendf("[R==>Port 1 invalid output.<==R]\n \
+          dut_error(appendf("[R==>Invalid output.<==R]\n \
                             Instruction %s %d %d,\n \
                             expected %032.32b \t %d,\n \
                             received %032.32b \t %d.\n",
@@ -141,7 +141,7 @@ extend instruction_s {
 
        check that ins.resp == 01;
        check that ins.dout == (ins.din1 >> ins.din2) else
-       dut_error(appendf("[R==>Port 1 invalid output.<==R]\n \
+       dut_error(appendf("[R==>Incorrect answer.<==R]\n \
                           Instruction %s %d %d,\n \
                           expected %032.32b \t %d,\n \
                           received %032.32b \t %d.\n",
@@ -165,7 +165,7 @@ extend instruction_s {
 
          check that ins.resp == 00;
          check that ins.dout == 0 else
-         dut_error(appendf("[R==>Port 1 invalid output.<==R]\n \
+         dut_error(appendf("[R==>Should return 0.<==R]\n \
                             No Instruction,\n \
                             expected %032.32b \t %d,\n \
                             received %032.32b \t %d.\n",
