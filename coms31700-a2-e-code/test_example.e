@@ -14,7 +14,7 @@ extend instruction_s {
 
 
 extend driver_u {
-   keep instructions_to_drive.size() == 100;
+   keep instructions_to_drive.size() == 1000;
 }; // extend driver_u
 
 
