@@ -1,0 +1,202 @@
+<HTML>
+<HEAD>
+<link type="text/css" rel="stylesheet" href="resources/imc.css"></link>
+<script type="text/javascript" src="resources/sortable.js"></script>
+<TITLE>IMC Report: coverage-full.wr15339</TITLE></HEAD>
+<BODY>
+<A NAME="_topcov"></A>
+<P class="summary_title">Coverage   Summary Report, Type-Based</P>
+
+<P class="fs"><A STYLE="float: left" class="namet" HREF="./index.html">Top Level Summary</A><A STYLE="float: right" class="namet" HREF="./resources/legend.html">Legend and Help</A></P>
+<BR>
+<TABLE class="detail_header"><TR class="detail"><TD>
+
+<B>Type name: </B>priority<BR>
+
+<B>File name: </B><A HREF="/home/fe15/wr15339/linux/DV_A1/coms31700-a2-e-code/priority.v" TARGET="_blank">/home/fe15/wr15339/linux/DV_A1/coms31700-a2-e-code/priority.v</A><BR>
+
+</TD></TR></TABLE>
+
+<BR>
+<P class="subtitle">Coverage Summary Report, Type-Based</P>
+<TABLE class="sortable sml summary_table" id="totalTable">
+
+
+<TR><TH class="wht">Overall</TH>
+<TH class="wht">Overall Covered</TH>
+<TH class="wht">Block</TH>
+<TH class="wht">Expression</TH>
+<TH class="wht">Toggle</TH>
+<TH class="wht">FSM&nbsp;State</TH>
+<TH class="wht">FSM&nbsp;Transition</TH>
+<TH class="wht">Assertion</TH>
+<TH class="wht">CoverGroup</TH>
+<TH class="wht">CoverGroup Covered</TH>
+<TH class="wht">name</TH>
+
+</TR>
+
+<TR><TD class="range85to89"><A HREF="">88.18%</A></TD>
+<TD class="range85to89"><A HREF="">85.38%&nbsp;(146/171)</A></TD>
+<TD class="range95to99"><A HREF="#_Blockcov">97.73%&nbsp;(43/44)</A></TD>
+<TD class="range95to99"><A HREF="#_Expressioncov">96.15%&nbsp;(50/52)</A></TD>
+<TD class="range70to74"><A HREF="#_Togglecov">70.67%&nbsp;(53/75)</A></TD>
+<TD class="rangenone">n/a</TD>
+<TD class="rangenone">n/a</TD>
+<TD class="rangenone">n/a</TD>
+<TD class="rangenone">n/a</TD>
+<TD class="rangenone">n/a</TD>
+<TD class="namecell">priority</TD>
+
+</TR>
+
+
+</TABLE>
+<A NAME="_Blockcov"></A>
+<P class="detail_title">     Uncovered Block Detail Report, Type Based</P>
+<P class="fs"><A STYLE="float: right" class="namet" HREF="#_topcov">To Top</A></P><BR>
+
+<TABLE class="detail_header"><TR class="detail"><TD>
+<B>Type name: </B>priority<BR>
+<B>File name: </B><A HREF="/home/fe15/wr15339/linux/DV_A1/coms31700-a2-e-code/priority.v" TARGET="_blank">/home/fe15/wr15339/linux/DV_A1/coms31700-a2-e-code/priority.v</A><BR><B>Number of uncovered blocks: </B>1 of 44<BR>
+<B>Number of unreachable blocks: </B>0<BR>
+
+
+</TD></TR></TABLE>
+
+<PRE class="detail_report_text">
+Count  Block Line  Kind                 Origin Source Code                    
+------------------------------------------------------------------------------
+0      12    69    true part of         68     prio_alu1_out_vld_q &lt;= 1'b1; 
+
+</PRE>
+<A NAME="_Expressioncov"></A>
+<P class="detail_title">     Uncovered Expression Detail Report, Type Based</P>
+<P class="fs"><A STYLE="float: right" class="namet" HREF="#_topcov">To Top</A></P><BR>
+
+<TABLE class="detail_header"><TR class="detail"><TD>
+<B>Type name: </B>priority<BR>
+<B>File name: </B><A HREF="/home/fe15/wr15339/linux/DV_A1/coms31700-a2-e-code/priority.v" TARGET="_blank">/home/fe15/wr15339/linux/DV_A1/coms31700-a2-e-code/priority.v</A><BR><B>Number of uncovered expressions: </B>2 of 52<BR>
+<B>Number of unreachable expressions: </B>0<BR>
+
+
+</TD></TR></TABLE>
+
+<PRE class="detail_report_text">
+index  | grade         | line   | expression                                         
+-------------------------------------------------------------------------------------
+4.1    | 75.00% (3/4)  | 68     | ((cmd4 != 4'b0000) && (cmd4 &lt; 4'b0100)) && local_error_found 
+13.1   | 66.67% (2/3)  | 146    | (prio_alu1_out_vld_q && (prio_req1_id_q[0:1] == 2'b11)) 
+
+<B>index: </B><B>4.1</B><B> grade: </B><B>75.00% (3/4)</B><B> line: </B><B>68</B><B> source: </B><B>else if ( (cmd4 != 4'b0000) && (cmd4 < 4'b0100) && local_error_found )</B>
+
+((cmd4 != 4'b0000) && (cmd4 < 4'b0100)) && local_error_found<BR>
+  <B><</B><B>1</B>-<B>></B>                <B><</B>------<B>3</B>-------<B>></B>     <B><</B>-------<B>4</B>-------<B>></B>
+
+index     | hit   | rval | &lt;1&gt; &lt;3&gt; &lt;4&gt; 
+---------------------------------------
+4.1.1     | 0     | 1    | 1   1   1   
+
+<B>index: </B><B>13.1</B><B> grade: </B><B>66.67% (2/3)</B><B> line: </B><B>146</B><B> source: </B><B>(prio_alu1_out_vld_q && (prio_req1_id_q[0:1] == 2'b11) ) ? 1 :</B>
+
+(prio_alu1_out_vld_q && (prio_req1_id_q[0:1] == 2'b11))<BR>
+ <B><</B>--------<B>1</B>--------<B>></B>    <B><</B>-------------<B>2</B>--------------<B>></B>
+
+index     | hit   | &lt;1&gt; &lt;2&gt; 
+---------------------------- '&&'
+13.1.3    | 0     | 1   1   
+
+
+</PRE>
+<A NAME="_Togglecov"></A>
+<P class="detail_title">     Uncovered Toggle Detail Report, Type Based</P>
+<P class="fs"><A STYLE="float: right" class="namet" HREF="#_topcov">To Top</A></P><BR>
+
+<TABLE class="detail_header"><TR class="detail"><TD>
+<B>Type name: </B>priority<BR>
+<B>File name: </B><A HREF="/home/fe15/wr15339/linux/DV_A1/coms31700-a2-e-code/priority.v" TARGET="_blank">/home/fe15/wr15339/linux/DV_A1/coms31700-a2-e-code/priority.v</A><BR><B>Number of uncovered signal bits: </B>22 of 75<BR>
+<B>Number of unreachable signal bits: </B>0<BR>
+<B>Number of signal bits partially toggled(rise): </B>0 of 75<BR>
+<B>Number of signal bits partially toggled(fall): </B>4 of 75<BR>
+
+
+</TD></TR></TABLE>
+
+<PRE class="detail_report_text">
+Hit(Full)  Hit(Rise)  Hit(Fall)  Signal                    
+-----------------------------------------------------------
+0          0          0          prio_alu1_in_cmd[0]       
+0          0          0          prio_alu2_in_cmd[0]       
+0          0          0          scan_out                  
+0          0          0          a_clk                     
+0          0          0          b_clk                     
+0          0          0          local_error_found         
+0          0          0          scan_in                   
+0          0          0          hold1_prio_req[0]         
+0          0          0          hold2_prio_req[0]         
+0          0          0          hold3_prio_req[0]         
+0          0          0          hold4_prio_req[0]         
+0          0          1          reset[1]                  
+0          0          0          reset[2]                  
+0          0          0          reset[3]                  
+0          0          0          reset[4]                  
+0          0          1          reset[5]                  
+0          0          1          reset[6]                  
+0          0          1          reset[7]                  
+0          0          0          cmd1[0]                   
+0          0          0          cmd2[0]                   
+0          0          0          cmd3[0]                   
+0          0          0          cmd4[0]                   
+
+</PRE>
+<A NAME="_Fsmcov"></A>
+<P class="detail_title">     Uncovered Fsm Detail Report, Type Based</P>
+<P class="fs"><A STYLE="float: right" class="namet" HREF="#_topcov">To Top</A></P><BR>
+
+<TABLE class="detail_header"><TR class="detail"><TD>
+<B>Type name: </B>priority<BR>
+<B>File name: </B><A HREF="/home/fe15/wr15339/linux/DV_A1/coms31700-a2-e-code/priority.v" TARGET="_blank">/home/fe15/wr15339/linux/DV_A1/coms31700-a2-e-code/priority.v</A><BR>
+
+</TD></TR></TABLE>
+
+<PRE class="detail_report_text">
+
+0 items found
+
+</PRE>
+<A NAME="_Assertioncov"></A>
+<P class="detail_title">     Uncovered Assertion Detail Report, Type Based</P>
+<P class="fs"><A STYLE="float: right" class="namet" HREF="#_topcov">To Top</A></P><BR>
+
+<TABLE class="detail_header"><TR class="detail"><TD>
+<B>Type name: </B>priority<BR>
+<B>File name: </B><A HREF="/home/fe15/wr15339/linux/DV_A1/coms31700-a2-e-code/priority.v" TARGET="_blank">/home/fe15/wr15339/linux/DV_A1/coms31700-a2-e-code/priority.v</A><BR><B>Number of uncovered assertions: </B>0 of 0<BR>
+
+
+</TD></TR></TABLE>
+
+<PRE class="detail_report_text">
+Finished Failed Assertion                      Line  Source Code                    
+------------------------------------------------------------------------------------
+
+0 items found
+
+</PRE>
+<A NAME="_CoverGroupcov"></A>
+<P class="detail_title">     Uncovered CoverGroup Detail Report, Type Based</P>
+<P class="fs"><A STYLE="float: right" class="namet" HREF="#_topcov">To Top</A></P><BR>
+
+<TABLE class="detail_header"><TR class="detail"><TD>
+<B>Type name: </B>priority<BR>
+<B>File name: </B><A HREF="/home/fe15/wr15339/linux/DV_A1/coms31700-a2-e-code/priority.v" TARGET="_blank">/home/fe15/wr15339/linux/DV_A1/coms31700-a2-e-code/priority.v</A><BR><B>Number of uncovered cover bins: </B>0 of 0<BR>
+
+
+</TD></TR></TABLE>
+
+</TD></TR></TABLE>
+
+<PRE class="detail_report_text">
+
+0 items found
+
+</PRE>
