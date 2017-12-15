@@ -179,5 +179,28 @@ extend instruction_s {
 
     }; // extend instruction_s
 
+    extend instruction_s {
+
+       // check no response when no instruction given
+       when INV'cmd_in instruction_s {
+
+         check_response(ins : instruction_s) is only {
+
+           check that ins.resp == 02;
+           check that ins.dout == 0 else
+           dut_error(appendf("[R==>Should return 0 for an invalid command.<==R]\n \
+                              No Instruction,\n \
+                              expected %032.32b \t %d,\n \
+                              received %032.32b \t %d.\n",
+                              0,
+                              0,
+                              ins.dout,ins.dout));
+
+         };
+
+         }; // when
+
+      }; // extend instruction_s
+
 
 '>
